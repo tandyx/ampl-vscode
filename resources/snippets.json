@@ -1,0 +1,181 @@
+{
+    "Constraint": {
+        "body": [
+            "subject to ${1:Constraint} {i in ${2:SET1}}:",
+            "\tsum{j in ${3:SET2}} ${4:Var}[i,j] <= ${5:Param}[i]",
+            ";"
+        ],
+        "description": "Adds a constraint to the model",
+        "prefix": [
+            "subject to"
+        ]
+    },
+    "For Loop": {
+        "body": [
+            "for {i in ${1:SET}} {",
+            "\t$0",
+            "};"
+        ],
+        "description": "Iterate over the elements of a set",
+        "prefix": [
+            "for"
+        ]
+    },
+    "If Statement": {
+        "body": [
+            "if ${1:Condition} then {",
+            "\t$0",
+            "} else {",
+            "\t",
+            "};"
+        ],
+        "prefix": [
+            "if"
+        ]
+    },
+    "Maximize": {
+        "body": [
+            "maximize Objective:",
+            "\tsum{i in ${1:SET}} ${2:Var}[i]",
+            ";"
+        ],
+        "description": "Maximization objective function",
+        "prefix": [
+            "maximize"
+        ]
+    },
+    "Minimize": {
+        "body": [
+            "minimize Objective:",
+            "\tsum{i in ${1:SET}} ${2:Var}[i]",
+            ";"
+        ],
+        "description": "Minimization objective function",
+        "prefix": [
+            "minimize"
+        ]
+    },
+    "Param Array": {
+        "body": [
+            "param ${1:Name} :=",
+            "${2:Element} ${3:Value}",
+            ";"
+        ],
+        "description": "The data for an indexed parameter",
+        "prefix": [
+            "param"
+        ]
+    },
+    "Param Data Table": {
+        "body": [
+            "param ${1:Name} :",
+            "\t\t\t${2:Element1}\t${3:Element2} :=",
+            "${4:Element3}\t${5:Value1}\t\t${6:Value2}",
+            ";"
+        ],
+        "description": "Simple table layout",
+        "prefix": [
+            "param"
+        ]
+    },
+    "Param Declaration": {
+        "body": [
+            "param ${1:Name} {${2:SET}};"
+        ],
+        "description": "Declares a parameter",
+        "prefix": [
+            "param"
+        ]
+    },
+    "Param Multiple": {
+        "body": [
+            "param: ${1:Name1} ${2:Name2} :=",
+            "${3:Element} ${4:Value1} ${5:Value2}",
+            ";"
+        ],
+        "description": "Defines several indexed parameters over the same set",
+        "prefix": [
+            "param"
+        ]
+    },
+    "Param Scalar": {
+        "body": [
+            "param ${1:Name} := ${2:Value};"
+        ],
+        "description": "The data for a single parameter",
+        "prefix": [
+            "param"
+        ]
+    },
+    "Repeat Until Loop": {
+        "body": [
+            "repeat {",
+            "\t$0",
+            "} until ${1:Condition};"
+        ],
+        "prefix": [
+            "repeat",
+            "until"
+        ]
+    },
+    "Repeat While Loop": {
+        "body": [
+            "repeat {",
+            "\t$0",
+            "} while ${1:Condition};"
+        ],
+        "prefix": [
+            "repeat",
+            "while"
+        ]
+    },
+    "Set Data": {
+        "body": [
+            "set ${1:SET_NAME} := ${2:Element};"
+        ],
+        "description": "The data for a set",
+        "prefix": [
+            "set"
+        ]
+    },
+    "Set Declaration": {
+        "body": [
+            "set ${1:SET_NAME};"
+        ],
+        "description": "Declares a set",
+        "prefix": [
+            "set"
+        ]
+    },
+    "Until Loop": {
+        "body": [
+            "repeat until ${1:Condition} {",
+            "\t$0",
+            "};"
+        ],
+        "prefix": [
+            "repeat",
+            "until"
+        ]
+    },
+    "Variable": {
+        "body": [
+            "var ${1:Name} {i in ${2:SET}};"
+        ],
+        "description": "Simple variable definition",
+        "prefix": [
+            "var"
+        ]
+    },
+    "While Loop": {
+        "body": [
+            "repeat while ${1:Condition} {",
+            "\t$0",
+            "};"
+        ],
+        "prefix": [
+            "repeat",
+            "while"
+        ]
+    }
+}

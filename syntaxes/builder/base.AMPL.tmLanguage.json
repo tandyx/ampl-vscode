@@ -1,0 +1,154 @@
+{
+  "name": "AMPL",
+  "scopeName": "source.ampl",
+  "fileTypes": [
+    "mod",
+    "dat",
+    "run"
+  ],
+  "repository": {
+    "general": {
+      "patterns": [
+        {
+          "include": "#linecomment"
+        },
+        {
+          "include": "#blockcomment"
+        },
+        {
+          "include": "#singlequotestring"
+        },
+        {
+          "include": "#doublequotestring"
+        },
+        {
+          "include": "#number"
+        },
+        {
+          "include": "#suffix"
+        },
+        {
+          "include": "#operator"
+        },
+        {
+          "include": "#genericfunction"
+        },
+        {
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+          "name": "variable.other.ampl"
+        }
+      ]
+    },
+    "linecomment": {
+      "name": "comment.line.sharp.ampl",
+      "match": "(#.*)(?!\\[\\[).*$\\n?",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.comment.gms"
+        }
+      }
+    },
+    "blockcomment": {
+      "name": "comment.slashstar.ampl",
+      "begin": "/\\*",
+      "end": "\\*/",
+      "contentName": "comment.block.documentation.ampl"
+    },
+    "singlequotestring": {
+      "name": "string.quoted.single.ampl",
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.ampl"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.ampl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "%(\\w+%|\\d+)",
+          "name": "entity.name.class.ampl"
+        }
+      ]
+    },
+    "doublequotestring": {
+      "name": "string.quoted.double.ampl",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.ampl"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.ampl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "%(\\w+%|\\d+)",
+          "name": "entity.name.class.ampl"
+        }
+      ]
+    },
+    "number": {
+      "name": "constant.numeric.ampl",
+      "match": "(?<![\\d.])\\b\\d+(\\.\\d+)?([eE]-?\\d+)?|\\.\\d+([eE]-?\\d+)?|(?i)([+-]?infinity)"
+    },
+    "suffix": {
+      "name": "support.suffix.ampl",
+      "match": "\\.([as]?status|defeqn|defvar|exitcode|message|result|lb[012s]?|ub[012s]?|[ul]?rc|val|init0?|body|dinit0?|[ul]?dual|[ul]?slack)|(<<|>>)"
+    },
+    "operator": {
+      "name": "keyword.operator.ampl",
+      "match": "(\\+|-|\\*|\\/|\\*\\*|=|<=?|>=?|==|\\||\\^|<|>|!|\\.\\.|:=|&|!=|:|/)"
+    },
+    "genericfunction": {
+      "name": "entity.name.function.ampl",
+      "match": "\\b(?![if|and|or])[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*\\()"
+    },
+    "argumentcurly": {
+      "begin": "\\{",
+      "patterns": [
+        {
+          "include": "#general"
+        },
+        {
+          "name": "meta.function-call.arguments.ampl",
+          "match": "."
+        }
+      ],
+      "end": "\\}"
+    },
+    "argumentbracket": {
+      "begin": "\\[",
+      "patterns": [
+        {
+          "include": "#general"
+        },
+        {
+          "name": "meta.function-call.arguments.ampl",
+          "match": "\\w"
+        }
+      ],
+      "end": "\\]"
+    }
+  },
+  "patterns": [
+    {
+      "include": "#general"
+    },
+    {
+      "include": "#argumentcurly"
+    },
+    {
+      "include": "#argumentbracket"
+    }
+  ],
+  "uuid": "7224acbd-b663-4ec3-8a02-3e6cf1680446"
+}

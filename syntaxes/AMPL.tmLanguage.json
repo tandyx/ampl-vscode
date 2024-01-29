@@ -1,0 +1,189 @@
+{
+    "name": "AMPL",
+    "scopeName": "source.ampl",
+    "fileTypes": [
+        "mod",
+        "dat",
+        "run"
+    ],
+    "repository": {
+        "general": {
+            "patterns": [
+                {
+                    "include": "#linecomment"
+                },
+                {
+                    "include": "#blockcomment"
+                },
+                {
+                    "include": "#singlequotestring"
+                },
+                {
+                    "include": "#doublequotestring"
+                },
+                {
+                    "include": "#number"
+                },
+                {
+                    "include": "#constant"
+                },
+                {
+                    "include": "#function"
+                },
+                {
+                    "include": "#keyword"
+                },
+                {
+                    "include": "#declaration"
+                },
+                {
+                    "include": "#type"
+                },
+                {
+                    "include": "#suffix"
+                },
+                {
+                    "include": "#operator"
+                },
+                {
+                    "include": "#genericfunction"
+                },
+                {
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+                    "name": "variable.other.ampl"
+                }
+            ]
+        },
+        "linecomment": {
+            "name": "comment.line.sharp.ampl",
+            "match": "(#.*)(?!\\[\\[).*$\\n?",
+            "captures": {
+                "1": {
+                    "name": "punctuation.definition.comment.gms"
+                }
+            }
+        },
+        "blockcomment": {
+            "name": "comment.slashstar.ampl",
+            "begin": "/\\*",
+            "end": "\\*/",
+            "contentName": "comment.block.documentation.ampl"
+        },
+        "singlequotestring": {
+            "name": "string.quoted.single.ampl",
+            "begin": "'",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin.ampl"
+                }
+            },
+            "end": "'",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end.ampl"
+                }
+            },
+            "patterns": [
+                {
+                    "match": "%(\\w+%|\\d+)",
+                    "name": "entity.name.class.ampl"
+                }
+            ]
+        },
+        "doublequotestring": {
+            "name": "string.quoted.double.ampl",
+            "begin": "\"",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin.ampl"
+                }
+            },
+            "end": "\"",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end.ampl"
+                }
+            },
+            "patterns": [
+                {
+                    "match": "%(\\w+%|\\d+)",
+                    "name": "entity.name.class.ampl"
+                }
+            ]
+        },
+        "number": {
+            "name": "constant.numeric.ampl",
+            "match": "(?<![\\d.])\\b\\d+(\\.\\d+)?([eE]-?\\d+)?|\\.\\d+([eE]-?\\d+)?|(?i)([+-]?infinity)"
+        },
+        "suffix": {
+            "name": "support.suffix.ampl",
+            "match": "\\.([as]?status|defeqn|defvar|exitcode|message|result|lb[012s]?|ub[012s]?|[ul]?rc|val|init0?|body|dinit0?|[ul]?dual|[ul]?slack)|(<<|>>)"
+        },
+        "operator": {
+            "name": "keyword.operator.ampl",
+            "match": "(\\+|-|\\*|\\/|\\*\\*|=|<=?|>=?|==|\\||\\^|<|>|!|\\.\\.|:=|&|!=|:|/)"
+        },
+        "genericfunction": {
+            "name": "entity.name.function.ampl",
+            "match": "\\b(?![if|and|or])[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*\\()"
+        },
+        "argumentcurly": {
+            "begin": "\\{",
+            "patterns": [
+                {
+                    "include": "#general"
+                },
+                {
+                    "name": "meta.function-call.arguments.ampl",
+                    "match": "."
+                }
+            ],
+            "end": "\\}"
+        },
+        "argumentbracket": {
+            "begin": "\\[",
+            "patterns": [
+                {
+                    "include": "#general"
+                },
+                {
+                    "name": "meta.function-call.arguments.ampl",
+                    "match": "\\w"
+                }
+            ],
+            "end": "\\]"
+        },
+        "constant": {
+            "match": "\\b((_ampl_elapsed_time|_ampl_system_time|_ampl_time|_ampl_user_time|_cconname|_conname|_CONS|_con|_ENVS|_FUNCS|_nccons|_ncons|_nobjs|_objname{1.._nobjs}|_OBJS|_obj{1.._nobjs}|_PARS|_PROBS|_scvar{1.._sncons}|_SETS|_shell_elapsed_time|_shell_system_time|_shell_time|_shell_user_time|_snbvars|_snccons|_snivars|_snlcc|_snlnc|_snnlcc|_snnlcons|_snnlnc|_snnlobjs|_snnlv|_snzcons|_snzobjs|_solve_elapsed_time|_solve_system_time|_solve_time|_solve_user_time|_total_shell_elapsed_time|_total_shell_system_time|_total_shell_time|_total_shell_user_time|_total_solve_elapsed_time|_total_solve_system_time|_total_solve_time|_total_solve_user_time|_varname{1.._nvars}|_VARS|_var{1.._nvars}|false|null|nvars|true)\\b)",
+            "name": "constant.language.ampl"
+        },
+        "function": {
+            "match": "\\b((abs|acos|acosh|alias|arity|asin|asinh|atan|atan2|atanh|Beta|card|Cauchy|ceil|char|cos|ctime|exp|Exponential|first|floor|Gamma|gsub|ichar|indexarity|Irand224|last|length|log|log10|match|max|member|min|next|nextw|Normal|Normal01|num|num0|ord|ord0|mod|Poisson|precision|prev|prevw|round|sin|sinh|sprintf|sqrt|sub|substr|tan|tanh|time|trunc|Uniform|Uniform01)\\b)",
+            "name": "entity.name.function.ampl"
+        },
+        "keyword": {
+            "match": "\\b((all|and|break|by|call|cd|check|close|commands|complements|contains|continue|cross|Current|data|default|delete|diff|difference|dimen|display|div|drop|else|end|environ|exists|exit|expand|fix|for|forall|if|IN|in|include|Initial|initial|INOUT|inter|intersect|intersection|less|let|load|LOCAL|local|logical|model|not|notin|objective|option|or|OUT|out|print|printf|problem|prod|purge|quit|read|redeclare|reload|remove|reset|restore|setof|shell|shell_exitcode|show|solexpand|solution|solve|solve_exitcode|solve_message|solve_result|solve_result_num|suffix|sum|symdiff|table|then|unfix|union|unload|until|update|while|within|write|xref)\\b)|s\\.t\\.",
+            "name": "keyword.control.ampl"
+        },
+        "declaration": {
+            "match": "\\b((arc|maximize|minimize|node|param|set|function|subj to|subject to|var)\\b)",
+            "name": "storage.type.ampl"
+        },
+        "type": {
+            "match": "\\b((binary|integer|symbolic)\\b)",
+            "name": "storage.type.ampl"
+        }
+    },
+    "patterns": [
+        {
+            "include": "#general"
+        },
+        {
+            "include": "#argumentcurly"
+        },
+        {
+            "include": "#argumentbracket"
+        }
+    ],
+    "uuid": "7224acbd-b663-4ec3-8a02-3e6cf1680446"
+}

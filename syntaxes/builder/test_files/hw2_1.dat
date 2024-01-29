@@ -1,0 +1,36 @@
+#SETS
+set STYLE:= S1 S2 S3 S4;
+set MANUFACTURER:= M1 M2 M3;
+set FOREIGN:= M1 M2;
+# PARAMETERS DEFINITION
+
+
+param PRICE: M1 M2 M3:= 
+    S1 8 6.75 9 # S1(8*M1 + 6.75*M2 + 9*M3) 
+    S2 10 10.25 10.5 # S2(10*M1 + 10.25*M2 + 10.5*M3)
+    S3 11 11.5 13 # S3(11*M1 + 11.5*M2 + 13*M3)
+    S4 13 14 12.75; # S4(13*M1 + 14*M2 + 12.75*M3)
+
+
+param CAPACITY: M1 M2 M3:=
+    S1 100 80 120 # S1(100*M1 + 80*M2 + 120*M3)
+    S2 80 60 100 # S2(80*M1 + 60*M2 + 100*M3)
+    S3 75 50 75 # S3(75*M1 + 50*M2 + 75*M3) 
+    S4 60 40 50; # S4(60*M1 + 40*M2 + 50*M3)
+
+# >= 200
+
+
+param ORDER:=
+    S1 200
+    S2 150
+    S3 90
+    S4 70;
+
+    
+param CAPACITY_TOTAL:=
+    M1 275 # M1(275)
+    M2 150 # M2(150)
+    M3 220; # M3(220)
+
+param QUOTA:= 350;
