@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
         markdownString.appendMarkdown(`(${keyword.datatype}): `);
       }
 
-      markdownString.appendText(keyword.description);
+      markdownString.appendMarkdown(keyword.description);
       markdownString.appendText("\n");
 
       if (keyword.type === "function" && keyword.parameters) {

@@ -24,18 +24,6 @@
         "type": "constant"
     },
     {
-        "name": "_cconname",
-        "datatype": "set",
-        "description": "names of complementarity constraints _cconname{1.._nccons}",
-        "type": "constant"
-    },
-    {
-        "name": "_conname",
-        "datatype": "set",
-        "description": "names of constraints in current model _conname{1.._ncons}",
-        "type": "constant"
-    },
-    {
         "name": "_CONS",
         "datatype": "set",
         "description": "set of all declared constraint names",
@@ -288,21 +276,9 @@
         "type": "constant"
     },
     {
-        "name": "_varname{1.._nvars}",
+        "name": "_nvars",
         "datatype": "set",
-        "description": "names of variables in current model",
-        "type": "constant"
-    },
-    {
-        "name": "_VARS",
-        "datatype": "set",
-        "description": "set of all declared variable names",
-        "type": "constant"
-    },
-    {
-        "name": "_var{1.._nvars}",
-        "datatype": "set",
-        "description": "synonyms for variables in current model",
+        "description": "set of all variables in the current model. \n in an iterating context, you could use: \n ```ampl \n {j in 1.._nvars} (_varname[j], _var[j], _var[j].rc) \n```\nto display all variables",
         "type": "constant"
     },
     {
