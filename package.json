@@ -91,7 +91,7 @@
 			{
 				"language": "ampl",
 				"scopeName": "source.ampl",
-				"path": "./syntaxes/AMPL.tmLanguage.json"
+				"path": "./resources/AMPL.tmLanguage.json"
 			}
 		],
 		"menus": {
@@ -113,7 +113,7 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
+		"compile": "tsc -p ./ && node ./out/build.js",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
 		"test": "node ./out/test/runTest.js",
