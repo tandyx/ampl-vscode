@@ -5,7 +5,8 @@
 	"version": "0.0.4",
 	"publisher": "johan-cho",
 	"author": {
-		"name": "Johan Cho"
+		"name": "Johan Cho",
+		"url": "https://johan-cho.github.io"
 	},
 	"homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md",
 	"license": "SEE LICENSE IN LICENSE.txt",
@@ -39,97 +40,97 @@
 					"default": true,
 					"description": "Whether to use a relative path to files when running in the console."
 				},
-				"ampl.compilerArgs": {
+				"ampl.exeArgs": {
 					"type": "array",
 					"scope": "machine",
-					"default": "",
-					"description": "an array of compiler args to AMPL's executable when the console is opened."
+					"default": [],
+					"description": "an array of exe args to AMPL's executable when the console is opened."
 				}
+			}
+		},
+		"snippets": [
+			{
+				"language": "ampl",
+				"path": "./resources/snippets.json"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "ampl.runFile",
+				"key": "ctrl+enter",
+				"mac": "cmd+enter",
+				"when": "editorTextFocus && editorLangId == 'ampl'"
+			}
+		],
+		"commands": [
+			{
+				"command": "ampl.openConsole",
+				"title": "AMPL: Open Console"
 			},
-			"snippets": [
-				{
-					"language": "ampl",
-					"path": "./resources/snippets.json"
-				}
-			],
-			"keybindings": [
+			{
+				"command": "ampl.runFile",
+				"title": "AMPL: Include File"
+			}
+		],
+		"languages": [
+			{
+				"id": "ampl",
+				"aliases": [
+					"AMPL",
+					"ampl"
+				],
+				"extensions": [
+					".mod",
+					".dat",
+					".run"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "ampl",
+				"scopeName": "source.ampl",
+				"path": "./syntaxes/AMPL.tmLanguage.json"
+			}
+		],
+		"menus": {
+			"editor/context": [
 				{
 					"command": "ampl.runFile",
-					"key": "ctrl+enter",
-					"mac": "cmd+enter",
-					"when": "editorTextFocus && editorLangId == 'ampl'"
-				}
-			],
-			"commands": [
-				{
-					"command": "ampl.openConsole",
-					"title": "AMPL: Open Console"
-				},
-				{
-					"command": "ampl.runFile",
-					"title": "AMPL: Include File"
-				}
-			],
-			"languages": [
-				{
-					"id": "ampl",
-					"aliases": [
-						"AMPL",
-						"ampl"
-					],
-					"extensions": [
-						".mod",
-						".dat",
-						".run"
-					],
-					"configuration": "./language-configuration.json"
-				}
-			],
-			"grammars": [
-				{
-					"language": "ampl",
-					"scopeName": "source.ampl",
-					"path": "./syntaxes/AMPL.tmLanguage.json"
-				}
-			],
-			"menus": {
-				"editor/context": [
-					{
-						"command": "ampl.runFile",
-						"title": "AMPL: Include File",
-						"when": "editorTextFocus && editorLangId == ampl"
-					}
-				]
-			},
-			"iconThemes": [
-				{
-					"id": "ampl",
-					"label": "AMPL",
-					"path": "./resources/icons.json"
+					"title": "AMPL: Include File",
+					"when": "editorTextFocus && editorLangId == ampl"
 				}
 			]
 		},
-		"scripts": {
-			"vscode:prepublish": "npm run compile",
-			"compile": "tsc -p ./",
-			"watch": "tsc -watch -p ./",
-			"pretest": "npm run compile",
-			"test": "node ./out/test/runTest.js",
-			"deploy": "vsce publish --yarn"
-		},
-		"devDependencies": {
-			"@types/glob": "^7.1.1",
-			"@types/mocha": "^5.2.6",
-			"@types/node": "^10.12.21",
-			"@types/vscode": "^1.20.0",
-			"glob": "^7.1.4",
-			"mocha": "^6.1.4",
-			"path": "^0.12.7",
-			"tslint": "^5.12.1",
-			"typescript": "^3.3.1",
-			"vsce": "^1.99.0",
-			"vscode-test": "^1.0.2",
-			"yarn": "^1.22.11"
-		}
+		"iconThemes": [
+			{
+				"id": "ampl",
+				"label": "AMPL",
+				"path": "./resources/icons.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js",
+		"deploy": "vsce publish --yarn"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.20.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"path": "^0.12.7",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vsce": "^1.99.0",
+		"vscode-test": "^1.0.2",
+		"yarn": "^1.22.11"
 	}
 }

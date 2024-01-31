@@ -10,6 +10,7 @@ KEYWORD_DICT = {
     "type": "storage.type.ampl",
 }
 
+
 PARENT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -34,7 +35,8 @@ def compile_tm_lang(base_file: str):
     for key, value in types.items():
         # types[key] = value[:-1] + (")\\b)|s\\.t\\." if key == "keyword" else ")\\b)")
         base_file_data["repository"][key] = {
-            "match": value[:-1] + (")\\b)|s\\.t\\." if key == "keyword" else ")\\b)"),
+            "match": value[:-1]
+            + (")\\b)|s\\.t\\." if key == "declaration" else ")\\b)"),
             "name": KEYWORD_DICT[key],
         }
         base_file_data["repository"]["general"]["patterns"].insert(

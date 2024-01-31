@@ -1,1541 +1,1847 @@
-{
-    "_ampl_elapsed_time": {
+[
+    {
+        "name": "_ampl_elapsed_time",
         "datatype": "float",
         "description": "elapsed seconds since the start of the AMPL process",
         "type": "constant"
     },
-    "_ampl_system_time": {
+    {
+        "name": "_ampl_system_time",
         "datatype": "float",
         "description": "system CPU seconds used by the AMPL process itself",
         "type": "constant"
     },
-    "_ampl_time": {
+    {
+        "name": "_ampl_time",
         "datatype": "float",
         "description": "ampl system time + ampl user time",
         "type": "constant"
     },
-    "_ampl_user_time": {
+    {
+        "name": "_ampl_user_time",
         "datatype": "float",
         "description": "user CPU seconds used by the AMPL process itself",
         "type": "constant"
     },
-    "_cconname": {
-        "datatype": "set[string]",
+    {
+        "name": "_cconname",
+        "datatype": "set",
         "description": "names of complementarity constraints _cconname{1.._nccons}",
         "type": "constant"
     },
-    "_conname": {
-        "datatype": "set[string]",
+    {
+        "name": "_conname",
+        "datatype": "set",
         "description": "names of constraints in current model _conname{1.._ncons}",
         "type": "constant"
     },
-    "_CONS": {
-        "datatype": "set[string]",
+    {
+        "name": "_CONS",
+        "datatype": "set",
         "description": "set of all declared constraint names",
         "type": "constant"
     },
-    "_con": {
-        "datatype": "set[string]",
+    {
+        "name": "_con",
+        "datatype": "set",
         "description": "synonyms for constraints in current model _con{1.._ncons}",
         "type": "constant"
     },
-    "_ENVS": {
-        "datatype": "set[string]",
+    {
+        "name": "_ENVS",
+        "datatype": "set",
         "description": "set of all declared environment names",
         "type": "constant"
     },
-    "_FUNCS": {
-        "datatype": "set[string]",
+    {
+        "name": "_FUNCS",
+        "datatype": "set",
         "description": "set of all declared user-defined functions",
         "type": "constant"
     },
-    "_nccons": {
+    {
+        "name": "_nccons",
         "datatype": "integer",
         "description": "number of complementarity constraints before presolve",
         "type": "constant"
     },
-    "_ncons": {
+    {
+        "name": "_ncons",
         "datatype": "integer",
         "description": "number of constraints in current model",
         "type": "constant"
     },
-    "_nobjs": {
+    {
+        "name": "_nobjs",
         "datatype": "integer",
         "description": "number of objectives in current model",
         "type": "constant"
     },
-    "_objname{1.._nobjs}": {
-        "datatype": "set[string]",
+    {
+        "name": "_objname{1.._nobjs}",
+        "datatype": "set",
         "description": "names of objectives in current model",
         "type": "constant"
     },
-    "_OBJS": {
-        "datatype": "set[string]",
+    {
+        "name": "_OBJS",
+        "datatype": "set",
         "description": "set of all declared objective names",
         "type": "constant"
     },
-    "_obj{1.._nobjs}": {
-        "datatype": "set[string]",
+    {
+        "name": "_obj{1.._nobjs}",
+        "datatype": "set",
         "description": "synonyms for objectives in current model",
         "type": "constant"
     },
-    "_PARS": {
-        "datatype": "set[string]",
+    {
+        "name": "_PARS",
+        "datatype": "set",
         "description": "set of all declared parameter names",
         "type": "constant"
     },
-    "_PROBS": {
-        "datatype": "set[string]",
+    {
+        "name": "_PROBS",
+        "datatype": "set",
         "description": "set of all declared problem names",
         "type": "constant"
     },
-    "_scvar{1.._sncons}": {
-        "datatype": "set[string]",
+    {
+        "name": "_scvar{1.._sncons}",
+        "datatype": "set",
         "description": "if _scvar[i] > 0, _svar[scvar[i]] complements _scon[i]",
         "type": "constant"
     },
-    "_SETS": {
-        "datatype": "set[string]",
+    {
+        "name": "_SETS",
+        "datatype": "set",
         "description": "set of all declared set names",
         "type": "constant"
     },
-    "_shell_elapsed_time": {
+    {
+        "name": "_shell_elapsed_time",
         "datatype": "float",
         "description": "elapsed seconds for most recent shell command",
         "type": "constant"
     },
-    "_shell_system_time": {
+    {
+        "name": "_shell_system_time",
         "datatype": "float",
         "description": "system CPU seconds used by most recent shell command",
         "type": "constant"
     },
-    "_shell_time": {
+    {
+        "name": "_shell_time",
         "datatype": "float",
         "description": "shell system time + shell user time",
         "type": "constant"
     },
-    "_shell_user_time": {
+    {
+        "name": "_shell_user_time",
         "datatype": "float",
         "description": "user CPU seconds used by most recent shell command",
         "type": "constant"
     },
-    "_snbvars": {
+    {
+        "name": "_snbvars",
         "datatype": "integer",
         "description": "number of binary (0,1) variables",
         "type": "constant"
     },
-    "_snccons": {
+    {
+        "name": "_snccons",
         "datatype": "integer",
         "description": "number of complementarity constraints after presolve",
         "type": "constant"
     },
-    "_snivars": {
+    {
+        "name": "_snivars",
         "datatype": "integer",
         "description": "number of general integer variables (excluding binaries)",
         "type": "constant"
     },
-    "_snlcc": {
+    {
+        "name": "_snlcc",
         "datatype": "integer",
         "description": "number of linear complementarity constraints",
         "type": "constant"
     },
-    "_snlnc": {
+    {
+        "name": "_snlnc",
         "datatype": "integer",
         "description": "number of linear network constraints",
         "type": "constant"
     },
-    "_snnlcc": {
+    {
+        "name": "_snnlcc",
         "datatype": "integer",
         "description": "number of nonlinear compl. constrs.: _snccons=_snlcc+_snnlcc",
         "type": "constant"
     },
-    "_snnlcons": {
+    {
+        "name": "_snnlcons",
         "datatype": "integer",
         "description": "number of nonlinear constraints",
         "type": "constant"
     },
-    "_snnlnc": {
+    {
+        "name": "_snnlnc",
         "datatype": "integer",
         "description": "number of nonlinear network constraints",
         "type": "constant"
     },
-    "_snnlobjs": {
+    {
+        "name": "_snnlobjs",
         "datatype": "integer",
         "description": "number of nonlinear objectives",
         "type": "constant"
     },
-    "_snnlv": {
+    {
+        "name": "_snnlv",
         "datatype": "integer",
         "description": "number of nonlinear variables",
         "type": "constant"
     },
-    "_snzcons": {
+    {
+        "name": "_snzcons",
         "datatype": "integer",
         "description": "number of constraint Jacobian matrix nonzeros",
         "type": "constant"
     },
-    "_snzobjs": {
+    {
+        "name": "_snzobjs",
         "datatype": "integer",
         "description": "number of objective gradient nonzeros",
         "type": "constant"
     },
-    "_solve_elapsed_time": {
+    {
+        "name": "_solve_elapsed_time",
         "datatype": "float",
         "description": "elapsed seconds for most recent solve command",
         "type": "constant"
     },
-    "_solve_system_time": {
+    {
+        "name": "_solve_system_time",
         "datatype": "float",
         "description": "system CPU seconds used by most recent solve command",
         "type": "constant"
     },
-    "_solve_time": {
+    {
+        "name": "_solve_time",
         "datatype": "float",
         "description": "solve system time + solve user time",
         "type": "constant"
     },
-    "_solve_user_time": {
+    {
+        "name": "_solve_user_time",
         "datatype": "float",
         "description": "user CPU seconds used by most recent solve command",
         "type": "constant"
     },
-    "_total_shell_elapsed_time": {
+    {
+        "name": "_total_shell_elapsed_time",
         "datatype": "float",
         "description": "elapsed seconds used by all shell commands",
         "type": "constant"
     },
-    "_total_shell_system_time": {
+    {
+        "name": "_total_shell_system_time",
         "datatype": "float",
         "description": "system CPU seconds used by all shell commands",
         "type": "constant"
     },
-    "_total_shell_time": {
+    {
+        "name": "_total_shell_time",
         "datatype": "float",
         "description": "total shell system time + total shell user time",
         "type": "constant"
     },
-    "_total_shell_user_time": {
+    {
+        "name": "_total_shell_user_time",
         "datatype": "float",
         "description": "user CPU seconds used by all shell commands",
         "type": "constant"
     },
-    "_total_solve_elapsed_time": {
+    {
+        "name": "_total_solve_elapsed_time",
         "datatype": "float",
         "description": "elapsed seconds used by all solve commands",
         "type": "constant"
     },
-    "_total_solve_system_time": {
+    {
+        "name": "_total_solve_system_time",
         "datatype": "float",
         "description": "system CPU seconds used by all solve commands",
         "type": "constant"
     },
-    "_total_solve_time": {
+    {
+        "name": "_total_solve_time",
         "datatype": "float",
         "description": "total solve system time + total solve user time",
         "type": "constant"
     },
-    "_total_solve_user_time": {
+    {
+        "name": "_total_solve_user_time",
         "datatype": "float",
         "description": "user CPU seconds used by all solve commands",
         "type": "constant"
     },
-    "_varname{1.._nvars}": {
-        "datatype": "set[string]",
+    {
+        "name": "_varname{1.._nvars}",
+        "datatype": "set",
         "description": "names of variables in current model",
         "type": "constant"
     },
-    "_VARS": {
-        "datatype": "set[string]",
+    {
+        "name": "_VARS",
+        "datatype": "set",
         "description": "set of all declared variable names",
         "type": "constant"
     },
-    "_var{1.._nvars}": {
-        "datatype": "set[string]",
+    {
+        "name": "_var{1.._nvars}",
+        "datatype": "set",
         "description": "synonyms for variables in current model",
         "type": "constant"
     },
-    "abs": {
-        "datatype": "real",
+    {
+        "name": "abs",
+        "datatype": "float",
         "description": "absolute value x",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "acos": {
-        "datatype": "real",
+    {
+        "name": "acos",
+        "datatype": "float",
         "description": "inverse cosine,cos^-1",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "acosh": {
-        "datatype": "real",
+    {
+        "name": "acosh",
+        "datatype": "float",
         "description": "inverse hyperbolic cosine,cosh^-1",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "alias": {
-        "datatype": "model entity",
-        "description": "alias of model entity v",
+    {
+        "name": "alias",
+        "datatype": "object",
+        "description": "returns alias of model entity v",
         "example": "",
-        "parameters": {
-            "v": {
-                "description": "model entity",
-                "type": "model entity"
+        "parameters": [
+            {
+                "name": "v",
+                "description": "object to alias",
+                "type": "object"
             }
-        },
+        ],
         "type": "function"
     },
-    "all": {
+    {
+        "name": "all",
         "description": "",
         "type": "keyword"
     },
-    "and": {
+    {
+        "name": "and",
         "description": "",
         "type": "keyword"
     },
-    "arc": {
+    {
+        "name": "arc",
         "description": "",
         "type": "declaration"
     },
-    "arity": {
+    {
+        "name": "arity",
         "datatype": "integer",
         "description": "arity of S if S is a set, else 0; for use with _SETS",
         "example": "",
-        "parameters": {
-            "S": {
+        "parameters": [
+            {
+                "name": "S",
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "asin": {
-        "datatype": "real",
+    {
+        "name": "asin",
+        "datatype": "float",
         "description": "inverse sine,sin^-1 ",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "asinh": {
-        "datatype": "real",
+    {
+        "name": "asinh",
+        "datatype": "float",
         "description": "inverse hyperbolic sine,sinh^-1 ",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "atan": {
-        "datatype": "real",
+    {
+        "name": "atan",
+        "datatype": "float",
         "description": "inverse tangent,tan^-1 ",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "atan2": {
-        "datatype": "real",
+    {
+        "name": "atan2",
+        "datatype": "float",
         "description": "inverse tangent,tan^-1 (y / x)",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             },
-            "y": {
+            {
+                "name": "y",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "atanh": {
-        "datatype": "real",
+    {
+        "name": "atanh",
+        "datatype": "float",
         "description": "inverse hyperbolic tangent,tanh^-1 ",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "Beta": {
+    {
+        "name": "Beta",
         "datatype": "number",
         "description": "Returns a random value from a Beta distribution. density(x) = x a^-1 ( 1^-x) b^-1 /(gamma(a) gamma(b)/gamma(a + b) ), x in [ 0 , 1 ]",
         "example": "",
-        "parameters": {
-            "a": {
+        "parameters": [
+            {
+                "name": "a",
                 "default": 1,
                 "max": 100,
                 "min": 0,
-                "type": "number"
+                "type": "float"
             },
-            "b": {
+            {
+                "name": "b",
                 "default": 1,
                 "max": 100,
                 "min": 0,
-                "type": "number"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "binary": {
+    {
+        "name": "binary",
         "description": "",
         "type": "type"
     },
-    "break": {
+    {
+        "name": "break",
         "description": "",
         "type": "keyword"
     },
-    "by": {
+    {
+        "name": "by",
         "description": "",
         "type": "keyword"
     },
-    "call": {
+    {
+        "name": "call",
         "description": "invoke imported function",
         "type": "keyword"
     },
-    "card": {
+    {
+        "name": "card",
         "datatype": "integer",
         "description": "number of members in set S",
         "example": "",
-        "parameters": {
-            "S": {
+        "parameters": [
+            {
+                "name": "S",
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "Cauchy": {
+    {
+        "name": "Cauchy",
         "datatype": "number",
         "description": "Returns a random value from a Cauchy distribution. density(x) = 1/(pi( 1 + x 2 ) )",
         "example": "",
-        "parameters": {},
+        "parameters": [],
         "type": "function"
     },
-    "cd": {
+    {
+        "name": "cd",
         "description": "change current directory",
         "type": "keyword"
     },
-    "ceil": {
-        "datatype": "real",
+    {
+        "name": "ceil",
+        "datatype": "float",
         "description": "ceiling of x (next higher integer)",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "real number",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "char": {
+    {
+        "name": "char",
         "datatype": "string",
         "description": "string representation of character n; inverse of ichar",
         "example": "",
-        "parameters": {
-            "n": {
+        "parameters": [
+            {
+                "name": "n",
                 "description": "integer to convert",
                 "type": "integer"
             }
-        },
+        ],
         "type": "function"
     },
-    "check": {
+    {
+        "name": "check",
         "description": "perform all check commands",
         "type": "keyword"
     },
-    "close": {
+    {
+        "name": "close",
         "description": "close file",
         "type": "keyword"
     },
-    "commands": {
+    {
+        "name": "commands",
         "description": "read and interpret commands from a file",
         "type": "keyword"
     },
-    "complements": {
+    {
+        "name": "complements",
         "description": "",
         "type": "keyword"
     },
-    "contains": {
+    {
+        "name": "contains",
         "description": "",
         "type": "keyword"
     },
-    "continue": {
+    {
+        "name": "continue",
         "description": "",
         "type": "keyword"
     },
-    "cos": {
-        "datatype": "real",
+    {
+        "name": "cos",
+        "datatype": "float",
         "description": "cosine",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "cross": {
+    {
+        "name": "cross",
         "description": "",
         "type": "keyword"
     },
-    "ctime": {
+    {
+        "name": "ctime",
         "datatype": "string",
         "description": "time t as a string",
         "example": "",
-        "parameters": {
-            "t": {
+        "parameters": [
+            {
+                "name": "t",
                 "default": null,
                 "description": "time - leave blank for current time",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "Current": {
+    {
+        "name": "Current",
         "description": "",
         "type": "keyword"
     },
-    "data": {
+    {
+        "name": "data",
         "description": "switch to data mode; optionally include file contents",
         "type": "keyword"
     },
-    "default": {
+    {
+        "name": "default",
         "description": "",
         "type": "keyword"
     },
-    "delete": {
+    {
+        "name": "delete",
         "description": "delete model entities",
         "type": "keyword"
     },
-    "diff": {
+    {
+        "name": "diff",
         "description": "",
         "type": "keyword"
     },
-    "difference": {
+    {
+        "name": "difference",
         "description": "",
         "type": "keyword"
     },
-    "dimen": {
+    {
+        "name": "dimen",
         "description": "",
         "type": "keyword"
     },
-    "display": {
+    {
+        "name": "display",
         "description": "print model entities and expressions; also csvdisplay and _display",
         "type": "keyword"
     },
-    "div": {
+    {
+        "name": "div",
         "description": "",
         "type": "keyword"
     },
-    "drop": {
+    {
+        "name": "drop",
         "description": "drop a constraint or objective",
         "type": "keyword"
     },
-    "else": {
+    {
+        "name": "else",
         "description": "",
         "type": "keyword"
     },
-    "end": {
+    {
+        "name": "end",
         "description": "end input from current input file",
         "type": "keyword"
     },
-    "environ": {
+    {
+        "name": "environ",
         "description": "set environment for a problem instance",
         "type": "keyword"
     },
-    "exists": {
+    {
+        "name": "exists",
         "description": "",
         "type": "keyword"
     },
-    "exit": {
+    {
+        "name": "exit",
         "description": "exit AMPL with status value",
         "type": "keyword"
     },
-    "exp": {
-        "datatype": "real",
+    {
+        "name": "exp",
+        "datatype": "float",
         "description": "ex",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "expand": {
+    {
+        "name": "expand",
         "description": "show expansion of model entities",
         "type": "keyword"
     },
-    "Exponential": {
+    {
+        "name": "Exponential",
         "datatype": "number",
         "description": "Returns a random value from an Exponential distribution. density(x) = e^-x , x>=0",
         "example": "",
-        "parameters": {},
+        "parameters": [],
         "type": "function"
     },
-    "false": {
+    {
+        "name": "false",
         "datatype": "boolean",
         "description": "false (boolean)",
         "type": "constant"
     },
-    "first": {
+    {
+        "name": "first",
         "datatype": "object",
         "description": "first member of S",
         "example": "",
-        "parameters": {
-            "S": {
+        "parameters": [
+            {
+                "name": "S",
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "fix": {
+    {
+        "name": "fix",
         "description": "freeze a variable at its current value",
         "type": "keyword"
     },
-    "floor": {
-        "datatype": "real",
+    {
+        "name": "floor",
+        "datatype": "float",
         "description": "floor of x (next lower integer)",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "for": {
+    {
+        "name": "for",
         "description": "",
         "type": "keyword"
     },
-    "forall": {
+    {
+        "name": "forall",
         "description": "",
         "type": "keyword"
     },
-    "Gamma": {
+    {
+        "name": "Gamma",
         "datatype": "number",
         "description": "Returns a random value from a Gamma distribution. density(x) = x a^-1 e^-x / gamma(a), x>=0",
         "example": "",
-        "parameters": {
-            "a": {
+        "parameters": [
+            {
+                "name": "a",
                 "default": 1,
                 "max": 100,
                 "min": 0,
-                "type": "number"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "gsub": {
+    {
+        "name": "gsub",
         "datatype": "string",
         "description": "substitute repl for all occurrences of regular expression re in s",
         "example": "",
-        "parameters": {
-            "re": {
+        "parameters": [
+            {
+                "name": "re",
                 "description": "regular expression",
                 "type": "string"
             },
-            "repl": {
+            {
+                "name": "repl",
                 "description": "replacement string",
                 "type": "string"
             },
-            "s": {
+            {
+                "name": "s",
                 "description": "string to test",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "ichar": {
+    {
+        "name": "ichar",
         "datatype": "integer",
         "description": "Unicode value of the first character in string s",
         "example": "",
-        "parameters": {
-            "s": {
+        "parameters": [
+            {
+                "name": "s",
                 "description": "string to convert",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "if": {
+    {
+        "name": "if",
         "description": "",
         "type": "keyword"
     },
-    "IN": {
+    {
+        "name": "IN",
         "description": "",
         "type": "keyword"
     },
-    "in": {
+    {
+        "name": "in",
         "description": "",
         "type": "keyword"
     },
-    "include": {
+    {
+        "name": "include",
         "description": "include file contents",
         "type": "keyword"
     },
-    "indexarity": {
+    {
+        "name": "indexarity",
         "datatype": "integer",
         "description": "arity of entity E's indexing set card, arity, and indexarity also apply to unordered sets",
         "example": "",
-        "parameters": {
-            "E": {
+        "parameters": [
+            {
+                "name": "E",
                 "description": "entity",
-                "type": "entity or set"
+                "type": "object"
             }
-        },
+        ],
         "type": "function"
     },
-    "Initial": {
+    {
+        "name": "Initial",
         "description": "",
         "type": "keyword"
     },
-    "initial": {
+    {
+        "name": "initial",
         "description": "",
         "type": "keyword"
     },
-    "INOUT": {
+    {
+        "name": "INOUT",
         "description": "",
         "type": "keyword"
     },
-    "integer": {
+    {
+        "name": "integer",
         "description": "",
         "type": "type"
     },
-    "inter": {
+    {
+        "name": "inter",
         "description": "",
         "type": "keyword"
     },
-    "intersect": {
+    {
+        "name": "intersect",
         "description": "",
         "type": "keyword"
     },
-    "intersection": {
+    {
+        "name": "intersection",
         "description": "",
         "type": "keyword"
     },
-    "Irand224": {
+    {
+        "name": "Irand224",
         "datatype": "integer",
         "description": "Returns a random integer in the range [0, 224).",
         "example": "",
-        "parameters": {},
+        "parameters": [],
         "type": "function"
     },
-    "last": {
+    {
+        "name": "last",
         "datatype": "object",
         "description": "last member of S",
         "example": "",
-        "parameters": {
-            "S": {
+        "parameters": [
+            {
+                "name": "S",
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "length": {
+    {
+        "name": "length",
         "datatype": "integer",
         "description": "length of string s",
         "example": "",
-        "parameters": {
-            "s": {
+        "parameters": [
+            {
+                "name": "s",
                 "description": "string to test",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "less": {
+    {
+        "name": "less",
         "description": "",
         "type": "keyword"
     },
-    "let": {
+    {
+        "name": "let",
         "description": "change data values",
         "type": "keyword"
     },
-    "load": {
+    {
+        "name": "load",
         "description": "load dynamic function library",
         "type": "keyword"
     },
-    "LOCAL": {
+    {
+        "name": "LOCAL",
         "description": "",
         "type": "keyword"
     },
-    "local": {
+    {
+        "name": "local",
         "description": "",
         "type": "keyword"
     },
-    "log": {
-        "datatype": "real",
+    {
+        "name": "log",
+        "datatype": "float",
         "description": "loge ",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "log10": {
-        "datatype": "real",
+    {
+        "name": "log10",
+        "datatype": "float",
         "description": "log10 ",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "logical": {
+    {
+        "name": "logical",
         "description": "",
         "type": "keyword"
     },
-    "match": {
+    {
+        "name": "match",
         "datatype": "string",
         "description": "starting position of regular expression re in s, or 0 if not found",
         "example": "",
-        "parameters": {
-            "re": {
+        "parameters": [
+            {
+                "name": "re",
                 "description": "regular expression",
                 "type": "string"
             },
-            "s": {
+            {
+                "name": "s",
                 "description": "string to test",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "max": {
-        "datatype": "real",
+    {
+        "name": "max",
+        "datatype": "float",
         "description": "maximum (2 or more arguments)",
         "example": "",
-        "parameters": {
-            "...": {
+        "parameters": [
+            {
+                "name": "...",
                 "description": "",
-                "type": "real"
+                "type": "float"
             },
-            "x": {
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             },
-            "y": {
+            {
+                "name": "y",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "maximize": {
+    {
+        "name": "maximize",
         "description": "",
         "type": "declaration"
     },
-    "member": {
+    {
+        "name": "member",
         "datatype": "object",
         "description": "jth member of S; 1 <= j <= card(S), j integer",
         "example": "",
-        "parameters": {
-            "j": {
+        "parameters": [
+            {
+                "name": "j",
                 "description": "integer",
                 "type": "integer"
             },
-            "S": {
+            {
+                "name": "S",
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "min": {
-        "datatype": "real",
+    {
+        "name": "min",
+        "datatype": "float",
         "description": "minimum (2 or more arguments)",
         "example": "",
-        "parameters": {
-            "...": {
+        "parameters": [
+            {
+                "name": "...",
                 "description": "",
-                "type": "real"
+                "type": "float"
             },
-            "x": {
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             },
-            "y": {
+            {
+                "name": "y",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "minimize": {
+    {
+        "name": "minimize",
         "description": "",
         "type": "declaration"
     },
-    "model": {
+    {
+        "name": "model",
         "description": "switch to model mode; optionally include file contents",
         "type": "keyword"
     },
-    "next": {
+    {
+        "name": "next",
         "datatype": "object",
         "description": "next member of set for which e is dummy index",
         "example": "",
-        "parameters": {
-            "e": {
+        "parameters": [
+            {
+                "name": "e",
                 "description": "object",
                 "type": "object"
             },
-            "k": {
+            {
+                "name": "k",
                 "default": 1,
                 "description": "integer",
                 "type": "integer"
             },
-            "S": {
+            {
+                "name": "S",
                 "default": null,
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "nextw": {
+    {
+        "name": "nextw",
         "datatype": "object",
         "description": "wrapping version of next",
         "example": "",
-        "parameters": {
-            "e": {
+        "parameters": [
+            {
+                "name": "e",
                 "description": "object",
                 "type": "object"
             },
-            "k": {
+            {
+                "name": "k",
                 "default": 1,
                 "description": "integer",
                 "type": "integer"
             },
-            "S": {
+            {
+                "name": "S",
                 "default": null,
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "node": {
+    {
+        "name": "node",
         "description": "",
         "type": "declaration"
     },
-    "Normal": {
+    {
+        "name": "Normal",
         "datatype": "number",
         "description": "Returns a random value from a Normal distribution. density(x) = e^-(x-avg)^2/(2*std^2) / (std*sqrt(2*pi))",
         "example": "",
-        "parameters": {
-            "avg": {
+        "parameters": [
+            {
+                "name": "avg",
                 "default": 0,
                 "max": 100,
                 "min": 0,
-                "type": "number"
+                "type": "float"
             },
-            "std": {
+            {
+                "name": "std",
                 "default": 1,
                 "max": 100,
                 "min": 0,
-                "type": "number"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "Normal01": {
+    {
+        "name": "Normal01",
         "datatype": "number",
         "description": "Returns a random value from a Normal distribution with mean 0 and standard deviation 1. density(x) = e^-(x-0)^2/(2*1^2) / (1*sqrt(2*pi))",
         "example": "",
-        "parameters": {},
+        "parameters": [],
         "type": "function"
     },
-    "not": {
+    {
+        "name": "not",
         "description": "",
         "type": "keyword"
     },
-    "notin": {
+    {
+        "name": "notin",
         "description": "",
         "type": "keyword"
     },
-    "null": {
+    {
+        "name": "null",
         "datatype": "null",
         "description": "null (no value)",
         "type": "constant"
     },
-    "num": {
+    {
+        "name": "num",
         "datatype": "number",
         "description": "convert string s to number; error if stripping leading and trailing white space does not yield a valid decimal number",
         "example": "",
-        "parameters": {
-            "s": {
+        "parameters": [
+            {
+                "name": "s",
                 "description": "string to convert",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "num0": {
+    {
+        "name": "num0",
         "datatype": "number",
         "description": "strip leading white space, and interpret as much as possible of s as a number, but do not raise error",
         "example": "",
-        "parameters": {
-            "s": {
+        "parameters": [
+            {
+                "name": "s",
                 "description": "string to convert",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "nvars": {
+    {
+        "name": "nvars",
         "datatype": "integer",
         "description": "number of variables in current model",
         "type": "constant"
     },
-    "objective": {
+    {
+        "name": "objective",
         "description": "select an objective to be optimized",
         "type": "keyword"
     },
-    "option": {
+    {
+        "name": "option",
         "description": "set or display option values",
         "type": "keyword"
     },
-    "or": {
+    {
+        "name": "or",
         "description": "",
         "type": "keyword"
     },
-    "ord": {
+    {
+        "name": "ord",
         "datatype": "integer",
         "description": "ordinal position of member e in set for which it is dummy index",
         "example": "",
-        "parameters": {
-            "e": {
+        "parameters": [
+            {
+                "name": "e",
                 "description": "object",
                 "type": "object"
             },
-            "S": {
+            {
+                "name": "S",
                 "default": null,
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "ord0": {
+    {
+        "name": "ord0",
         "datatype": "integer",
         "description": "same as ord",
         "example": "",
-        "parameters": {
-            "e": {
+        "parameters": [
+            {
+                "name": "e",
                 "description": "object",
                 "type": "object"
             },
-            "S": {
+            {
+                "name": "S",
                 "default": null,
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "OUT": {
+    {
+        "name": "OUT",
         "description": "",
         "type": "keyword"
     },
-    "out": {
+    {
+        "name": "out",
         "description": "",
         "type": "keyword"
     },
-    "param": {
+    {
+        "name": "param",
         "description": "decalre a parameter",
         "type": "declaration"
     },
-    "mod": {
+    {
+        "name": "mod",
         "datatype": "integer",
         "description": "remainder of x/y -- can be called with x mod y",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "integer",
                 "type": "integer"
             },
-            "y": {
+            {
+                "name": "y",
                 "description": "integer",
                 "type": "integer"
             }
-        },
+        ],
         "type": "function"
     },
-    "Poisson": {
+    {
+        "name": "Poisson",
         "datatype": "number",
         "description": "Returns a random value from a Poisson distribution. density(x) = e^-lambda lambda^x / x!, x>=0",
         "example": "",
-        "parameters": {
-            "lambda": {
+        "parameters": [
+            {
+                "name": "lambda",
                 "default": 1,
                 "max": 100,
                 "min": 0,
-                "type": "number"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "precision": {
-        "datatype": "real",
+    {
+        "name": "precision",
+        "datatype": "float",
         "description": "x rounded to n significant decimal digits",
         "example": "",
-        "parameters": {
-            "n": {
+        "parameters": [
+            {
+                "name": "n",
                 "description": "precision",
                 "type": "integer"
             },
-            "x": {
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "prev": {
+    {
+        "name": "prev",
         "datatype": "object",
         "description": "previous member of set for which e is dummy index",
         "example": "",
-        "parameters": {
-            "e": {
+        "parameters": [
+            {
+                "name": "e",
                 "description": "object",
                 "type": "object"
             },
-            "k": {
+            {
+                "name": "k",
                 "default": 1,
                 "description": "integer",
                 "type": "integer"
             },
-            "S": {
+            {
+                "name": "S",
                 "default": null,
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "prevw": {
+    {
+        "name": "prevw",
         "datatype": "object",
         "description": "wrapping version of prev",
         "example": "",
-        "parameters": {
-            "e": {
+        "parameters": [
+            {
+                "name": "e",
                 "description": "object",
                 "type": "object"
             },
-            "k": {
+            {
+                "name": "k",
                 "default": 1,
                 "description": "integer",
                 "type": "integer"
             },
-            "S": {
+            {
+                "name": "S",
                 "default": null,
                 "description": "set",
                 "type": "set"
             }
-        },
+        ],
         "type": "function"
     },
-    "print": {
+    {
+        "name": "print",
         "description": "print model entities and expressions unformatted",
         "type": "keyword"
     },
-    "printf": {
+    {
+        "name": "printf",
         "description": "print model entities and expressions formatted",
         "type": "keyword"
     },
-    "problem": {
+    {
+        "name": "problem",
         "description": "define or switch to a named problem",
         "type": "keyword"
     },
-    "prod": {
+    {
+        "name": "prod",
         "description": "",
         "type": "keyword"
     },
-    "purge": {
+    {
+        "name": "purge",
         "description": "remove model entities",
         "type": "keyword"
     },
-    "quit": {
+    {
+        "name": "quit",
         "description": "terminate AMPL",
         "type": "keyword"
     },
-    "read": {
+    {
+        "name": "read",
         "description": "table take input from a data table",
         "type": "keyword"
     },
-    "redeclare": {
+    {
+        "name": "redeclare",
         "description": "change declaration of entity",
         "type": "keyword"
     },
-    "reload": {
+    {
+        "name": "reload",
         "description": "reload dynamic function library",
         "type": "keyword"
     },
-    "remove": {
+    {
+        "name": "remove",
         "description": "remove file",
         "type": "keyword"
     },
-    "reset": {
+    {
+        "name": "reset",
         "description": "reset specified entities to their initial state",
         "type": "keyword"
     },
-    "restore": {
+    {
+        "name": "restore",
         "description": "undo a drop command",
         "type": "keyword"
     },
-    "round": {
-        "datatype": "real",
+    {
+        "name": "round",
+        "datatype": "float",
         "description": "x rounded to n digits past decimal point",
         "example": "",
-        "parameters": {
-            "n": {
+        "parameters": [
+            {
+                "name": "n",
                 "default": 0,
                 "description": "precision",
                 "type": "integer"
             },
-            "x": {
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "set": {
+    {
+        "name": "set",
         "description": "",
         "type": "declaration"
     },
-    "setof": {
+    {
+        "name": "setof",
         "description": "",
         "type": "keyword"
     },
-    "shell": {
+    {
+        "name": "shell",
         "description": "temporary escape to operating system to run commands",
         "type": "keyword"
     },
-    "shell_exitcode": {
+    {
+        "name": "shell_exitcode",
         "description": "",
         "type": "keyword"
     },
-    "function": {
+    {
+        "name": "function",
         "description": "define a function",
         "type": "declaration"
     },
-    "show": {
+    {
+        "name": "show",
         "description": "show names of model entities",
         "type": "keyword"
     },
-    "sin": {
-        "datatype": "real",
+    {
+        "name": "sin",
+        "datatype": "float",
         "description": "sine",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "sinh": {
-        "datatype": "real",
+    {
+        "name": "sinh",
+        "datatype": "float",
         "description": "hyperbolic sine",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": "",
-                "type": "real"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "solexpand": {
+    {
+        "name": "solexpand",
         "description": "show expansion as seen by solver",
         "type": "keyword"
     },
-    "solution": {
+    {
+        "name": "solution",
         "description": "import variable values as if from a solver",
         "type": "keyword"
     },
-    "solve": {
+    {
+        "name": "solve",
         "description": "send current instance to a solver and retrieve solution",
         "type": "keyword"
     },
-    "solve_exitcode": {
+    {
+        "name": "solve_exitcode",
         "description": "",
         "type": "keyword"
     },
-    "solve_message": {
+    {
+        "name": "solve_message",
         "description": "",
         "type": "keyword"
     },
-    "solve_result": {
+    {
+        "name": "solve_result",
         "description": "",
         "type": "keyword"
     },
-    "solve_result_num": {
+    {
+        "name": "solve_result_num",
         "description": "",
         "type": "keyword"
     },
-    "sprintf": {
+    {
+        "name": "sprintf",
         "datatype": "string",
         "description": "format arguments according to format string fmt",
         "example": "",
-        "parameters": {
-            "exprlistopt": {
+        "parameters": [
+            {
+                "name": "exprlistopt",
                 "default": "none",
                 "description": "list of expressions to format (optional)",
                 "type": "expression"
             },
-            "f": {
+            {
+                "name": "f",
                 "description": "format string",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "sqrt": {
-        "datatype": "real",
+    {
+        "name": "sqrt",
+        "datatype": "float",
         "description": "square root",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": ""
             }
-        },
+        ],
         "type": "function"
     },
-    "sub": {
+    {
+        "name": "sub",
         "datatype": "string",
         "description": "substitute repl for the first occurrence of regular expression re in s",
         "example": "",
-        "parameters": {
-            "re": {
+        "parameters": [
+            {
+                "name": "re",
                 "description": "regular expression",
                 "type": "string"
             },
-            "repl": {
+            {
+                "name": "repl",
                 "description": "replacement string",
                 "type": "string"
             },
-            "s": {
+            {
+                "name": "s",
                 "description": "string to test",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "subj to": {
+    {
+        "name": "subj to",
         "description": "",
         "type": "declaration"
     },
-    "subject to": {
+    {
+        "name": "subject to",
         "description": "",
         "type": "declaration"
     },
-    "substr": {
+    {
+        "name": "substr",
         "datatype": "string",
         "description": "n character substring of s starting at position m; if n omitted, rest of string",
         "example": "",
-        "parameters": {
-            "m": {
+        "parameters": [
+            {
+                "name": "m",
                 "description": "starting position",
                 "type": "integer"
             },
-            "n": {
+            {
+                "name": "n",
                 "default": "length(s) - m + 1",
                 "description": "length of substring (optional)",
                 "type": "integer"
             },
-            "s": {
+            {
+                "name": "s",
                 "description": "string to test",
                 "type": "string"
             }
-        },
+        ],
         "type": "function"
     },
-    "suffix": {
+    {
+        "name": "suffix",
         "description": "",
         "type": "keyword"
     },
-    "sum": {
+    {
+        "name": "sum",
         "description": "",
         "type": "keyword"
     },
-    "symbolic": {
+    {
+        "name": "symbolic",
         "description": "",
         "type": "type"
     },
-    "symdiff": {
+    {
+        "name": "symdiff",
         "description": "",
         "type": "keyword"
     },
-    "table": {
+    {
+        "name": "table",
         "description": "",
         "type": "keyword"
     },
-    "tan": {
-        "datatype": "real",
+    {
+        "name": "tan",
+        "datatype": "float",
         "description": "tangent",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": ""
             }
-        },
+        ],
         "type": "function"
     },
-    "tanh": {
-        "datatype": "real",
+    {
+        "name": "tanh",
+        "datatype": "float",
         "description": "hyperbolic tangent",
         "example": "",
-        "parameters": {
-            "x": {
+        "parameters": [
+            {
+                "name": "x",
                 "description": ""
             }
-        },
+        ],
         "type": "function"
     },
-    "then": {
+    {
+        "name": "then",
         "description": "",
         "type": "keyword"
     },
-    "time": {
-        "datatype": "real",
+    {
+        "name": "time",
+        "datatype": "float",
         "description": "current time in seconds",
         "example": "",
-        "parameters": {},
+        "parameters": [],
         "type": "function"
     },
-    "true": {
+    {
+        "name": "true",
         "datatype": "boolean",
         "description": "true (boolean)",
         "type": "constant"
     },
-    "trunc": {
-        "datatype": "real",
+    {
+        "name": "trunc",
+        "datatype": "float",
         "description": "x truncated to n digits past decimal point",
         "example": "",
-        "parameters": {
-            "n": {
+        "parameters": [
+            {
+                "name": "n",
                 "default": 0,
                 "description": "precision"
             },
-            "x": {
+            {
+                "name": "x",
                 "description": ""
             }
-        },
+        ],
         "type": "function"
     },
-    "unfix": {
+    {
+        "name": "unfix",
         "description": "undo a fix command",
         "type": "keyword"
     },
-    "Uniform": {
+    {
+        "name": "Uniform",
         "datatype": "number",
         "description": "Returns a random value from a Uniform distribution. density(x) = 1/(n-m), x in [m, n]",
         "example": "",
-        "parameters": {
-            "m": {
+        "parameters": [
+            {
+                "name": "m",
                 "default": 0,
                 "max": 100,
                 "min": 0,
-                "type": "number"
+                "type": "float"
             },
-            "n": {
+            {
+                "name": "n",
                 "default": 1,
                 "max": 100,
                 "min": 0,
-                "type": "number"
+                "type": "float"
             }
-        },
+        ],
         "type": "function"
     },
-    "Uniform01": {
+    {
+        "name": "Uniform01",
         "datatype": "number",
         "description": "Returns a random value from a Uniform distribution. density(x) = 1, x in [0, 1]",
         "example": "",
-        "parameters": {},
+        "parameters": [],
         "type": "function"
     },
-    "union": {
+    {
+        "name": "union",
         "description": "",
         "type": "keyword"
     },
-    "unload": {
+    {
+        "name": "unload",
         "description": "unload dynamic function library",
         "type": "keyword"
     },
-    "until": {
+    {
+        "name": "until",
         "description": "",
         "type": "keyword"
     },
-    "update": {
+    {
+        "name": "update",
         "description": "allow updating data",
         "type": "keyword"
     },
-    "var": {
+    {
+        "name": "var",
         "description": "",
         "type": "declaration"
     },
-    "while": {
+    {
+        "name": "while",
         "description": "",
         "type": "keyword"
     },
-    "within": {
+    {
+        "name": "within",
         "description": "",
         "type": "keyword"
     },
-    "write": {
+    {
+        "name": "write",
         "description": "table write data to a data table",
         "type": "keyword"
     },
-    "xref": {
+    {
+        "name": "xref",
         "description": "show dependencies among entities",
         "type": "keyword"
     }
-}
+]

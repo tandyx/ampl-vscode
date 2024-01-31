@@ -4,9 +4,17 @@
 
 import * as vscode from "vscode";
 import * as path from "path";
+import * as fs from "fs";
+import * as keyword from "./keyword";
 
 let g_terminal: vscode.Terminal;
 let terminal_open: boolean = false;
+const keywords: keyword.Keyword[] = JSON.parse(
+  fs.readFileSync(
+    path.join(__dirname, "..", "resources", "keywords.json"),
+    "utf-8"
+  )
+);
 
 export function activate(context: vscode.ExtensionContext) {
   console.log("Activating extension AMPL");
@@ -24,7 +32,55 @@ export function activate(context: vscode.ExtensionContext) {
       terminal_open = false;
     }
   });
+
+  vscode.languages.registerHoverProvider("ampl", {
+    provideHover(
+      document: vscode.TextDocument,
+      position: vscode.Position,
+      token: vscode.CancellationToken
+    ): vscode.ProviderResult<vscode.Hover> {
+      const word = document.getText(document.getWordRangeAtPosition(position));
+      const keyword = keywords.find((k) => k.name === word);
+      if (!keyword || !keyword.description) {
+        return;
+      }
+      const markdownString = new vscode.MarkdownString();
+      markdownString.appendMarkdown(`### ${keyword.name}\n`);
+
+      if (keyword.type === "constant" && keyword.datatype) {
+        markdownString.appendMarkdown(`(${keyword.datatype}): `);
+      }
+
+      markdownString.appendText(keyword.description);
+      markdownString.appendText("\n");
+
+      if (keyword.type === "function" && keyword.parameters) {
+        markdownString.appendMarkdown("**Arguments**:\n");
+        for (const param of keyword.parameters) {
+          markdownString.appendMarkdown(
+            `- \`${param.name}\` (${param.type}): ${param.description}\n`
+          );
+        }
+        markdownString.appendMarkdown(`\n**returns**: ${keyword.datatype}\n`);
+      }
+
+      if (keyword.example) {
+        markdownString.appendCodeblock(keyword.example, "ampl");
+      }
+
+      return new vscode.Hover(markdownString);
+    },
+  });
 }
+
+function variableHover(
+  word: string,
+  document: vscode.TextDocument,
+  position: vscode.Position
+): vscode.Hover {
+  return new vscode.Hover("This is a variable"); // ill figure this shit out later
+}
+
 /**
  * function to run the ampl file in a preexisiting console
  * @returns {void}
@@ -40,7 +96,7 @@ function runFile(): void {
     document.save();
     return;
   }
-  const name = vscode.workspace
+  const name: string = vscode.workspace
     .getConfiguration("ampl")
     .get<string>("useRelativePath")
     ? vscode.workspace.asRelativePath(document.fileName)
@@ -63,15 +119,15 @@ export function openAMPLConsole(): void {
   if (path === "" || path === undefined) {
     path = "ampl";
   }
-  let compilerArgs = vscode.workspace
+  let exeArgs = vscode.workspace
     .getConfiguration("ampl")
-    .get<Array<string>>("ampl.compilerArgs");
+    .get<Array<string>>("ampl.exeArgs");
 
-  if (!compilerArgs || !compilerArgs.length) {
-    return;
+  if (!exeArgs || !exeArgs.length) {
+    exeArgs = [];
   }
 
-  g_terminal.sendText(`${path} ${compilerArgs.join(" ")}`);
+  g_terminal.sendText(`${path} ${exeArgs.join(" ")}`);
 }
 
 /**
@@ -86,7 +142,7 @@ function writeToConsole(msg: string): void {
 }
 
 /**
- * writes
+ * creates a new terminal and terminal_open is set to true
  * @returns {void}
  */
 
