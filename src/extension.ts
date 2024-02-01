@@ -18,65 +18,63 @@ const keywords: _keyword.Keyword[] = JSON.parse(
 
 export function activate(context: vscode.ExtensionContext) {
   console.log("Activating extension AMPL");
+
   const dispose1 = vscode.commands.registerCommand(
     "ampl.openConsole",
     openAMPLConsole
   );
   const dispose2 = vscode.commands.registerCommand("ampl.runFile", runFile);
+
   for (const dispose of [dispose1, dispose2]) {
     context.subscriptions.push(dispose);
   }
 
   vscode.window.onDidCloseTerminal((terminal) => {
     if (terminal === g_terminal) {
+      // what the fuck does this do
       terminal_open = false;
     }
   });
 
+  /**
+   * provides hover information for keywords
+   */
   vscode.languages.registerHoverProvider("ampl", {
     provideHover(
       document: vscode.TextDocument,
       position: vscode.Position,
-      token: vscode.CancellationToken
+      token: vscode.CancellationToken // eslint-disable-line
     ): vscode.ProviderResult<vscode.Hover> {
       const word = document.getText(document.getWordRangeAtPosition(position));
       const keyword = keywords.find((k) => k.name === word);
-      if (!keyword || !keyword.description) return;
+      const line = document.lineAt(position.line);
+      if (
+        !keyword ||
+        !keyword.description ||
+        line.text.startsWith("#") ||
+        line.text.startsWith("/**") ||
+        line.text.startsWith("*")
+      ) {
+        return;
+      }
       const markdownString = getKeywordMarkdown(keyword);
       return new vscode.Hover(markdownString);
     },
   });
 
+  /**
+   * provides completition -- generated from keywords.json
+   */
   vscode.languages.registerCompletionItemProvider("ampl", {
-    provideCompletionItems(document, position, token, context) {
+    provideCompletionItems(
+      document: vscode.TextDocument, // eslint-disable-line
+      position: vscode.Position, // eslint-disable-line
+      token: vscode.CancellationToken, // eslint-disable-line
+      context: vscode.CompletionContext // eslint-disable-line
+    ) {
       const completionItems: vscode.CompletionItem[] = [];
       for (const keyword of keywords) {
-        let compItem;
-        switch (keyword.type) {
-          case "function":
-            compItem = new vscode.CompletionItem(
-              keyword.name,
-              vscode.CompletionItemKind.Function
-            );
-            break; //maybe there's a better way to do it...
-          case "constant":
-            compItem = new vscode.CompletionItem(
-              keyword.name,
-              vscode.CompletionItemKind.Constant
-            );
-            break;
-          case "declaration":
-            compItem = new vscode.CompletionItem(
-              keyword.name,
-              vscode.CompletionItemKind.Struct
-            );
-            break;
-          default:
-            compItem = new vscode.CompletionItem(
-              keyword.name,
-              vscode.CompletionItemKind.Keyword
-            );
-        }
+        const compItem = getBaseCompletionItem(keyword);
         compItem.documentation = getKeywordMarkdown(keyword);
         compItem.insertText = keyword.name;
         completionItems.push(compItem);
@@ -86,6 +84,43 @@ export function activate(context: vscode.ExtensionContext) {
   });
 }
 
+/**
+ * function to get the base completion item for a keyword
+ * @param {_keyword.Keyword} keyword - the keyword to get the completion item for
+ * @returns {vscode.CompletionItem} - the completion item for the keyword
+ */
+function getBaseCompletionItem(
+  keyword: _keyword.Keyword
+): vscode.CompletionItem {
+  switch (keyword.type) {
+    case "function":
+      return new vscode.CompletionItem(
+        keyword.name,
+        vscode.CompletionItemKind.Function
+      );
+    case "constant":
+      return new vscode.CompletionItem(
+        keyword.name,
+        vscode.CompletionItemKind.Constant
+      );
+    case "declaration":
+      return new vscode.CompletionItem(
+        keyword.name,
+        vscode.CompletionItemKind.Struct
+      );
+    default:
+      return new vscode.CompletionItem(
+        keyword.name,
+        vscode.CompletionItemKind.Keyword
+      );
+  }
+}
+
+/**
+ * function to get the markdown for a keyword
+ * @param {_keyword.Keyword} keyword  - the keyword to get the markdown for
+ * @returns  {vscode.MarkdownString} - the markdown string for the keyword
+ */
 function getKeywordMarkdown(keyword: _keyword.Keyword): vscode.MarkdownString {
   const markdownString = new vscode.MarkdownString();
   markdownString.appendMarkdown(`## ${keyword.name}\n---\n`);
@@ -106,14 +141,6 @@ function getKeywordMarkdown(keyword: _keyword.Keyword): vscode.MarkdownString {
     markdownString.appendCodeblock(keyword.example, "ampl");
   }
   return markdownString;
-}
-
-function variableHover(
-  word: string,
-  document: vscode.TextDocument,
-  position: vscode.Position
-): vscode.Hover {
-  return new vscode.Hover("This is a variable"); // ill figure this shit out later
 }
 
 /**
@@ -138,10 +165,10 @@ export function runFile(): void {
   switch (path.extname(document.fileName)) {
     case ".dat":
       writeToConsole(`data "${name}";`);
-      break;
+      return;
     case ".mod":
       writeToConsole(`model "${name}";`);
-      break;
+      return;
     case ".run":
       writeToConsole(`include "${name}";`);
   }

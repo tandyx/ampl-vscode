@@ -1,4 +1,10 @@
 {
+    "exclude": [
+        "node_modules",
+        "out",
+        "./node_modules",
+        "node_modules/*",
+    ],
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
@@ -10,10 +16,6 @@
         "skipLibCheck": true,
         "sourceMap": true,
         "rootDir": "src",
-        "strict": true
+        "strict": true,
     },
-    "exclude": [
-        ".vscode-test",
-        "node_modules"
-    ]
 }

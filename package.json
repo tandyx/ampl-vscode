@@ -5,8 +5,7 @@
 	"version": "0.0.1",
 	"publisher": "johan-cho",
 	"author": {
-		"name": "Johan Cho",
-		"url": "https://johan-cho.github.io"
+		"name": "Johan Cho"
 	},
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"repository": {
@@ -40,16 +39,10 @@
 					"description": "Whether to use a relative path to files when running in the console."
 				},
 				"ampl.exeArgs": {
-					"type": "array<string>",
+					"type": "array",
 					"scope": "machine",
 					"default": [],
 					"description": "an array of exe args to AMPL's executable when the console is opened."
-				},
-				"ampl.customIcons": {
-					"type": "boolean",
-					"scope": "machine",
-					"default": true,
-					"description": "Whether to use custom icons for AMPL files."
 				}
 			}
 		},
@@ -91,7 +84,7 @@
 					".dat",
 					".run"
 				],
-				"configuration": "./language-configuration.json"
+				"configuration": "./resources/language-configuration.json"
 			}
 		],
 		"grammars": [
@@ -138,6 +131,9 @@
 		"@types/mocha": "10.0.6",
 		"@types/node": "20.11.14",
 		"@types/vscode": "1.85.0",
+		"@typescript-eslint/eslint-plugin": "^6.20.0",
+		"@typescript-eslint/parser": "^6.20.0",
+		"eslint": "^8.56.0",
 		"glob": "10.3.10",
 		"mocha": "10.2.0",
 		"path": "0.12.7",
