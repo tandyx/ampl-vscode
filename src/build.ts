@@ -63,7 +63,7 @@ function build(): void {
   }
 
   fs.writeFileSync(
-    path.join(__dirname, "..", "AMPL.tmLanguage.json"),
+    path.join(__dirname, "..", "resources", "AMPL.tmLanguage.json"),
     JSON.stringify(baseJson, null, 4),
     "utf-8"
   );

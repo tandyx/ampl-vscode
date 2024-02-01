@@ -51,32 +51,35 @@ export function activate(context: vscode.ExtensionContext) {
     provideCompletionItems(document, position, token, context) {
       const completionItems: vscode.CompletionItem[] = [];
       for (const keyword of keywords) {
-        let completionItem;
+        let compItem;
         switch (keyword.type) {
           case "function":
-            completionItem = new vscode.CompletionItem(
+            compItem = new vscode.CompletionItem(
               keyword.name,
               vscode.CompletionItemKind.Function
             );
+            break; //maybe there's a better way to do it...
           case "constant":
-            completionItem = new vscode.CompletionItem(
+            compItem = new vscode.CompletionItem(
               keyword.name,
               vscode.CompletionItemKind.Constant
             );
+            break;
           case "declaration":
-            completionItem = new vscode.CompletionItem(
+            compItem = new vscode.CompletionItem(
               keyword.name,
               vscode.CompletionItemKind.Struct
             );
+            break;
           default:
-            completionItem = new vscode.CompletionItem(
+            compItem = new vscode.CompletionItem(
               keyword.name,
               vscode.CompletionItemKind.Keyword
             );
         }
-        completionItem.documentation = keyword.description;
-        completionItem.insertText = keyword.name;
-        completionItems.push(completionItem);
+        compItem.documentation = getKeywordMarkdown(keyword);
+        compItem.insertText = keyword.name;
+        completionItems.push(compItem);
       }
       return completionItems;
     },
@@ -85,12 +88,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 function getKeywordMarkdown(keyword: _keyword.Keyword): vscode.MarkdownString {
   const markdownString = new vscode.MarkdownString();
-  markdownString.appendMarkdown(`### ${keyword.name}\n`);
+  markdownString.appendMarkdown(`## ${keyword.name}\n---\n`);
   if (keyword.type === "constant" && keyword.datatype) {
     markdownString.appendMarkdown(`(${keyword.datatype}): `);
   }
-  markdownString.appendMarkdown(keyword.description);
-  markdownString.appendText("\n");
+  markdownString.appendMarkdown(`${keyword.description}\n\n`);
   if (keyword.type === "function" && keyword.parameters) {
     markdownString.appendMarkdown("**Arguments**:\n");
     for (const param of keyword.parameters) {
@@ -119,31 +121,36 @@ function variableHover(
  * @returns {void}
  */
 
-function runFile(): void {
+export function runFile(): void {
   const editor = vscode.window.activeTextEditor;
-  if (!editor) {
-    return;
-  }
+  if (!editor) return;
   const document = editor.document;
-  if (document.isUntitled) {
-    document.save();
-    return;
-  }
+
   const name: string = vscode.workspace
     .getConfiguration("ampl")
     .get<string>("useRelativePath")
     ? vscode.workspace.asRelativePath(document.fileName)
     : document.fileName;
+
+  if (!terminal_open) {
+    openAMPLConsole();
+  }
   switch (path.extname(document.fileName)) {
     case ".dat":
       writeToConsole(`data "${name}";`);
+      break;
     case ".mod":
       writeToConsole(`model "${name}";`);
+      break;
     case ".run":
       writeToConsole(`include "${name}";`);
   }
 }
 
+/**
+ * opens the ampl console
+ * @returns {void}
+ */
 export function openAMPLConsole(): void {
   openConsole();
   let path = vscode.workspace
@@ -159,8 +166,8 @@ export function openAMPLConsole(): void {
   if (!exeArgs || !exeArgs.length) {
     exeArgs = [];
   }
-
-  g_terminal.sendText(`${path} ${exeArgs.join(" ")}`);
+  terminal_open = true;
+  writeToConsole(`${path} ${exeArgs.join(" ")}`);
 }
 
 /**
@@ -178,7 +185,6 @@ function writeToConsole(msg: string): void {
  * creates a new terminal and terminal_open is set to true
  * @returns {void}
  */
-
 function openConsole(): void {
   g_terminal = vscode.window.createTerminal({ name: "AMPL" });
   terminal_open = true;
