@@ -6,7 +6,7 @@ this is still in development, please submit pull requests, issues or feature req
 
 ## Features
 
-- syntax highlighter
+- syntax coloring
 - definition on hover
 - include files in console
 - snippets
@@ -23,3 +23,12 @@ This extension contributes the following settings:
 - `ampl.pathToExecutable`: path to `ampl.exe` -- defaults to `"ampl"`; assumes it's on path
 - `ampl.useRelativePath`: toggles relative file paths
 - `ampl.complierArgs`: arguments to feed into the ampl executable
+
+## building
+
+you could build the extentsion by cloning the repo, and then running:
+
+    ```shell
+    npm run compile
+    ```
+the source file for autocomplete, syntax coloring and definitions is `<./resources/keywords.json>`.
