@@ -136,6 +136,10 @@ function getKeywordMarkdown(keyword: _keyword.Keyword): vscode.MarkdownString {
       );
     }
     markdownString.appendMarkdown(`\n**returns**: ${keyword.datatype}\n`);
+    if (keyword.example) {
+      markdownString.appendMarkdown("\n**Example**:\n");
+      markdownString.appendCodeblock(keyword.example, "ampl");
+    }
   }
   if (keyword.example) {
     markdownString.appendCodeblock(keyword.example, "ampl");

@@ -1710,7 +1710,7 @@
     {
         "datatype": "float",
         "description": "tangent",
-        "example": "",
+        "example": "tan(0) = 0, tan(pi/4) = 1, tan(pi/2) = undefined",
         "name": "tan",
         "parameters": [
             {
