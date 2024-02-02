@@ -190,13 +190,14 @@
     },
     "Block Comment": {
         "body": [
-            "$BLOCK_COMMENT_START",
+            "$BLOCK_COMMENT_START*",
             " * $0",
-            "$BLOCK_COMMENT_END"
+            " $BLOCK_COMMENT_END"
         ],
         "description": "Block comment",
         "prefix": [
-            "$BLOCK_COMMENT_START"
+            "comment",
+            "/**"
         ]
     }
 }
