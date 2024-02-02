@@ -10,15 +10,14 @@ type KeywordType = {
   type: string;
 };
 
+const resourcesPath = path.join(__dirname, "..", "resources");
+
 /**
  * builds AMPL.tmLanguage.json
  */
 function build(): void {
   const keywords: keyword.Keyword[] = JSON.parse(
-    fs.readFileSync(
-      path.join(__dirname, "..", "resources", "keywords.json"),
-      "utf-8"
-    )
+    fs.readFileSync(path.join(resourcesPath, "keywords.json"), "utf-8")
   );
 
   const baseJson = JSON.parse(
@@ -63,12 +62,12 @@ function build(): void {
   }
 
   fs.writeFileSync(
-    path.join(__dirname, "..", "resources", "AMPL.tmLanguage.json"),
+    path.join(resourcesPath, "AMPL.tmLanguage.json"),
     JSON.stringify(baseJson, null, 4),
     "utf-8"
   );
 
-  console.log("wrote to AMPL.tmLanguage.json");
+  console.log(`written to ${path.join(resourcesPath, "AMPL.tmLanguage.json")}`);
 }
 
 build();
