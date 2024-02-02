@@ -53,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
         !keyword.description ||
         line.text.startsWith("#") ||
         line.text.startsWith("/**") ||
-        line.text.startsWith("*")
+        line.text.replace(" ", "").startsWith("*")
       ) {
         return;
       }

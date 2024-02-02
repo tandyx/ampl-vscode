@@ -177,5 +177,26 @@
             "repeat",
             "while"
         ]
+    },
+    "Arc": {
+        "body": [
+            "arc ${1:Name} {(i,j) in ${2:SET}} >= ${3:Lower}, <= ${4:Upper},",
+            "\tfrom ${5:From}[i], to ${6:To}[j], obj ${7:Objective} ${8:Cost}[i,j];"
+        ],
+        "description": "declare an arc in a network model",
+        "prefix": [
+            "arc"
+        ]
+    },
+    "Block Comment": {
+        "body": [
+            "$BLOCK_COMMENT_START",
+            " * $0",
+            "$BLOCK_COMMENT_END"
+        ],
+        "description": "Block comment",
+        "prefix": [
+            "$BLOCK_COMMENT_START"
+        ]
     }
 }

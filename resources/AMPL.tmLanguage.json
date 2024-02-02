@@ -28,10 +28,10 @@
                     "include": "#constant"
                 },
                 {
-                    "include": "#function"
+                    "include": "#keyword"
                 },
                 {
-                    "include": "#keyword"
+                    "include": "#function"
                 },
                 {
                     "include": "#declaration"
@@ -154,16 +154,16 @@
             "end": "\\]"
         },
         "constant": {
-            "match": "\\b((_ampl_elapsed_time|_ampl_system_time|_ampl_time|_ampl_user_time|_CONS|_con|_ENVS|_FUNCS|_nccons|_ncons|_nobjs|_objname{1.._nobjs}|_OBJS|_obj{1.._nobjs}|_PARS|_PROBS|_scvar{1.._sncons}|_SETS|_shell_elapsed_time|_shell_system_time|_shell_time|_shell_user_time|_snbvars|_snccons|_snivars|_snlcc|_snlnc|_snnlcc|_snnlcons|_snnlnc|_snnlobjs|_snnlv|_snzcons|_snzobjs|_solve_elapsed_time|_solve_system_time|_solve_time|_solve_user_time|_total_shell_elapsed_time|_total_shell_system_time|_total_shell_time|_total_shell_user_time|_total_solve_elapsed_time|_total_solve_system_time|_total_solve_time|_total_solve_user_time|_nvars|false|null|nvars|true)\\b)",
+            "match": "\\b((_ampl_elapsed_time|_varname|_var|_ampl_system_time|_ampl_time|_ampl_user_time|_CONS|_con|_ENVS|_FUNCS|_nccons|_conname|_ncons|_nobjs|_objname{1.._nobjs}|_OBJS|_obj{1.._nobjs}|_PARS|_PROBS|_scvar{1.._sncons}|_SETS|_shell_elapsed_time|_shell_system_time|_shell_time|_shell_user_time|_snbvars|_snccons|_snivars|_snlcc|_snlnc|_snnlcc|_snnlcons|_snnlnc|_snnlobjs|_snnlv|_snzcons|_snzobjs|_solve_elapsed_time|_solve_system_time|_solve_time|_solve_user_time|_total_shell_elapsed_time|_total_shell_system_time|_total_shell_time|_total_shell_user_time|_total_solve_elapsed_time|_total_solve_system_time|_total_solve_time|_total_solve_user_time|_nvars|nvars)\\b)",
             "name": "constant.language.ampl"
+        },
+        "keyword": {
+            "match": "\\b((to|from|obj|all|and|break|by|call|cd|check|close|commands|complements|contains|continue|cross|Current|data|default|delete|diff|difference|dimen|display|div|drop|else|end|environ|exists|exit|expand|fix|for|forall|if|IN|in|include|ordered by|circular by|Initial|initial|INOUT|inter|intersect|intersection|less|let|load|LOCAL|local|logical|model|not|notin|objective|option|or|OUT|out|print|printf|problem|prod|purge|quit|read|redeclare|reload|remove|reset|restore|setof|shell|shell_exitcode|show|solexpand|solution|solve|solve_exitcode|solve_message|solve_result|solve_result_num|suffix|sum|symdiff|table|then|unfix|union|unload|until|update|while|within|write|xref)\\b)",
+            "name": "keyword.control.ampl"
         },
         "function": {
             "match": "\\b((abs|acos|acosh|alias|arity|asin|asinh|atan|atan2|atanh|Beta|card|Cauchy|ceil|char|cos|ctime|exp|Exponential|first|floor|Gamma|gsub|ichar|indexarity|Irand224|last|length|log|log10|match|max|member|min|next|nextw|Normal|Normal01|num|num0|ord|ord0|mod|Poisson|precision|prev|prevw|round|sin|sinh|sprintf|sqrt|sub|substr|tan|tanh|time|trunc|Uniform|Uniform01)\\b)",
             "name": "entity.name.function.ampl"
-        },
-        "keyword": {
-            "match": "\\b((all|and|break|by|call|cd|check|close|commands|complements|contains|continue|cross|Current|data|default|delete|diff|difference|dimen|display|div|drop|else|end|environ|exists|exit|expand|fix|for|forall|if|IN|in|include|Initial|initial|INOUT|inter|intersect|intersection|less|let|load|LOCAL|local|logical|model|not|notin|objective|option|or|OUT|out|print|printf|problem|prod|purge|quit|read|redeclare|reload|remove|reset|restore|setof|shell|shell_exitcode|show|solexpand|solution|solve|solve_exitcode|solve_message|solve_result|solve_result_num|suffix|sum|symdiff|table|then|unfix|union|unload|until|update|while|within|write|xref)\\b)",
-            "name": "keyword.control.ampl"
         },
         "declaration": {
             "match": "\\b((arc|maximize|minimize|node|param|set|function|subj to|subject to|var)\\b)|s\\.t\\.",
