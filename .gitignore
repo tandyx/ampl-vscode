@@ -4,3 +4,4 @@ node_modules
 *.vsix
 *.tocken
 __pycache__/
+.DS_Store
