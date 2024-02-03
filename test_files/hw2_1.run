@@ -1,5 +1,5 @@
-model hw2_1/hw2_1.mod;
-data hw2_1/hw2_1.dat; 
+model "hw2_1.mod";
+data "hw2_1.dat"; 
 printf "==================\nObjective\n==================\n";
 
 solve;

@@ -29,7 +29,7 @@
 				"ampl.pathToExecutable": {
 					"type": "string",
 					"scope": "machine",
-					"default": "ampl",
+					"default": "",
 					"description": "Specifies the path to the AMPL command executable."
 				},
 				"ampl.useRelativePath": {
@@ -116,7 +116,15 @@
 				"label": "AMPL",
 				"path": "./resources/icons.json"
 			}
-		]
+		],
+		"terminal": {
+			"profiles": [
+				{
+					"id": "ampl.shell",
+					"title": "AMPL"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

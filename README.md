@@ -28,7 +28,8 @@ This extension contributes the following settings:
 
 you could build the extentsion by cloning the repo, and then running:
 
-    ```shell
-    npm run compile
-    ```
-the source file for autocomplete, syntax coloring and definitions is `<./resources/keywords.json>`.
+```shell
+npm run compile
+```
+
+the source file for autocomplete, syntax coloring and definitions is [./resources/keywords.json](./resources/keywords.json).
