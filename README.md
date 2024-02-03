@@ -20,8 +20,8 @@ a version of AMPL is needed to run files.
 
 This extension contributes the following settings:
 
-- `ampl.pathToExecutable`: path to `ampl.exe` -- defaults to `"ampl"`; assumes it's on path
-- `ampl.useRelativePath`: toggles relative file paths
+- `ampl.pathToExecutable`: path to `ampl.exe` -- defaults to looking for it on path
+- `ampl.useRelativePath`: toggles relative file paths when running through the ample console
 - `ampl.complierArgs`: arguments to feed into the ampl executable
 
 ## building

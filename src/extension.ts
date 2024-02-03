@@ -1,37 +1,10 @@
-/**
- * i wish this was stateless
- */
-
 import * as vscode from "vscode";
 import * as path from "path";
 import * as fs from "fs";
 import * as _keyword from "./keyword";
-import {
-  getBaseCompletionItem,
-  getKeywordMarkdown,
-  findExecutable,
-} from "./utils";
-
-class AMPLTerminal {
-  public name: string = "AMPL";
-  public amplPath: string =
-    vscode.workspace.getConfiguration("ampl").get<string>("pathToExecutable") ||
-    findExecutable("ampl.exe") ||
-    "ampl";
-
-  public terminalOptions: vscode.TerminalOptions = {
-    name: this.name,
-    shellPath: this.amplPath || vscode.env.shell,
-    shellArgs: this.amplPath
-      ? vscode.workspace
-          .getConfiguration("ampl")
-          .get<Array<string>>("ampl.exeArgs")
-      : [],
-  };
-}
+import * as utils from "./utils";
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log("Activating extension AMPL");
   const keywords: _keyword.Keyword[] = JSON.parse(
     fs.readFileSync(
       path.join(__dirname, "..", "resources", "keywords.json"),
@@ -44,8 +17,14 @@ export function activate(context: vscode.ExtensionContext) {
     openAMPLConsole
   );
   const dispose2 = vscode.commands.registerCommand("ampl.runFile", runFile);
+  const dispose3 = vscode.commands.registerCommand("ampl.solve", () => {
+    getAmplConsole().sendText("solve;");
+  });
+  const dispose4 = vscode.commands.registerCommand("ampl.reset", () => {
+    getAmplConsole().sendText("reset;");
+  });
 
-  for (const dispose of [dispose1, dispose2]) {
+  for (const dispose of [dispose1, dispose2, dispose3, dispose4]) {
     context.subscriptions.push(dispose);
   }
 
@@ -53,24 +32,11 @@ export function activate(context: vscode.ExtensionContext) {
    * provides hover information for keywords
    */
   vscode.languages.registerHoverProvider("ampl", {
-    provideHover(
-      document: vscode.TextDocument,
-      position: vscode.Position,
-      token: vscode.CancellationToken // eslint-disable-line
-    ): vscode.ProviderResult<vscode.Hover> {
+    provideHover(document, position) {
       const word = document.getText(document.getWordRangeAtPosition(position));
       const keyword = keywords.find((k) => k.name === word);
-      const line = document.lineAt(position.line);
-      if (
-        !keyword ||
-        !keyword.description ||
-        line.text.startsWith("#") ||
-        line.text.startsWith("/**") ||
-        line.text.replace(" ", "").startsWith("*")
-      ) {
-        return;
-      }
-      return new vscode.Hover(getKeywordMarkdown(keyword));
+      if (!keyword || !keyword.description) return;
+      return new vscode.Hover(utils.getKeywordMarkdown(keyword));
     },
   });
 
@@ -78,16 +44,11 @@ export function activate(context: vscode.ExtensionContext) {
    * provides completition -- generated from keywords.json
    */
   vscode.languages.registerCompletionItemProvider("ampl", {
-    provideCompletionItems(
-      document: vscode.TextDocument, // eslint-disable-line
-      position: vscode.Position, // eslint-disable-line
-      token: vscode.CancellationToken, // eslint-disable-line
-      context: vscode.CompletionContext // eslint-disable-line
-    ) {
+    provideCompletionItems() {
       const completionItems: vscode.CompletionItem[] = [];
       for (const keyword of keywords) {
-        const compItem = getBaseCompletionItem(keyword);
-        compItem.documentation = getKeywordMarkdown(keyword);
+        const compItem = utils.getBaseCompletionItem(keyword);
+        compItem.documentation = utils.getKeywordMarkdown(keyword);
         compItem.insertText = keyword.name;
         completionItems.push(compItem);
       }
@@ -96,10 +57,10 @@ export function activate(context: vscode.ExtensionContext) {
   });
 
   vscode.window.registerTerminalProfileProvider("ampl.shell", {
-    provideTerminalProfile(
-      token: vscode.CancellationToken // eslint-disable-line
-    ): vscode.ProviderResult<vscode.TerminalProfile> {
-      return new vscode.TerminalProfile(new AMPLTerminal().terminalOptions);
+    provideTerminalProfile(): vscode.ProviderResult<vscode.TerminalProfile> {
+      return new vscode.TerminalProfile(
+        new utils.AMPLTerminal("AMPL").terminalOptions
+      );
     },
   });
 }
@@ -110,15 +71,10 @@ export function activate(context: vscode.ExtensionContext) {
  */
 
 export function runFile(): void {
-  let terminal = vscode.window.activeTerminal;
-  if (!terminal || terminal.name !== "AMPL") {
-    terminal = openAMPLConsole();
-  }
-
+  const terminal = getAmplConsole();
   const editor = vscode.window.activeTextEditor;
   if (!editor) return;
   const document = editor.document;
-
   const name: string = vscode.workspace
     .getConfiguration("ampl")
     .get<string>("useRelativePath")
@@ -126,14 +82,24 @@ export function runFile(): void {
     : document.fileName;
   switch (path.extname(document.fileName)) {
     case ".dat":
-      terminal.sendText(`data "${name}";`);
-      return;
+      return terminal.sendText(`data "${name}";`);
     case ".mod":
-      terminal.sendText(`model "${name}";`);
-      return;
+      return terminal.sendText(`model "${name}";`);
     case ".run":
-      terminal.sendText(`include "${name}";`);
+      return terminal.sendText(`include "${name}";`);
   }
+}
+
+/**
+ * this function checks if the ampl console is open and returns it, if not it opens it then returns it
+ * @returns {vscode.Terminal} - the ampl console
+ */
+function getAmplConsole(): vscode.Terminal {
+  const terminal = vscode.window.activeTerminal;
+  if (!terminal || terminal.name !== "AMPL") {
+    return openAMPLConsole();
+  }
+  return terminal;
 }
 
 /**
@@ -141,7 +107,7 @@ export function runFile(): void {
  * @returns {void}
  */
 export function openAMPLConsole(): vscode.Terminal {
-  const amplTerminal = new AMPLTerminal();
+  const amplTerminal = new utils.AMPLTerminal();
   const g_terminal = vscode.window.createTerminal(
     amplTerminal.name,
     amplTerminal.terminalOptions.shellPath,

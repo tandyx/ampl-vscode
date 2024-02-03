@@ -197,6 +197,7 @@
         "description": "Block comment",
         "prefix": [
             "comment",
+            "block_comment",
             "/**"
         ]
     }

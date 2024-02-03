@@ -24,7 +24,7 @@
 	"contributes": {
 		"configuration": {
 			"type": "object",
-			"title": "ampl",
+			"title": "AMPL",
 			"properties": {
 				"ampl.pathToExecutable": {
 					"type": "string",
@@ -64,12 +64,26 @@
 			{
 				"command": "ampl.openConsole",
 				"title": "AMPL: Open Console",
-				"icon": "$(terminal)"
+				"icon": "$(terminal)",
+				"enablement": "editorLangId == ampl"
 			},
 			{
 				"command": "ampl.runFile",
 				"title": "AMPL: Include File",
-				"icon": "$(play)"
+				"icon": "$(play)",
+				"enablement": "editorLangId == ampl"
+			},
+			{
+				"command": "ampl.solve",
+				"title": "AMPL: Solve",
+				"icon": "$(play)",
+				"shortTitle": "Solve"
+			},
+			{
+				"command": "ampl.reset",
+				"title": "AMPL: Reset",
+				"icon": "$(trash)",
+				"shortTitle": "Reset"
 			}
 		],
 		"languages": [

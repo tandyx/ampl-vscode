@@ -3,6 +3,27 @@ import * as fs from "fs";
 import * as vscode from "vscode";
 import * as _keyword from "./keyword";
 
+export class AMPLTerminal {
+  public name: string;
+  public amplPath: string =
+    vscode.workspace.getConfiguration("ampl").get<string>("pathToExecutable") ||
+    findExecutable("ampl.exe");
+  public executableArgs: string[] = this.amplPath
+    ? vscode.workspace
+        .getConfiguration("ampl")
+        .get<Array<string>>("ampl.exeArgs") || []
+    : [];
+  public terminalOptions: vscode.TerminalOptions;
+
+  constructor(name?: string) {
+    this.name = name || "AMPL";
+    this.terminalOptions = {
+      name: this.name,
+      shellPath: this.amplPath || vscode.env.shell,
+      shellArgs: this.executableArgs,
+    };
+  }
+}
 /**
  * function to get the base completion item for a keyword
  * @param {_keyword.Keyword} keyword - the keyword to get the completion item for
