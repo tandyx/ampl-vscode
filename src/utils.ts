@@ -3,18 +3,40 @@ import * as fs from "fs";
 import * as vscode from "vscode";
 import * as _keyword from "./keyword";
 
+/**
+ * class to represent an AMPL terminal TerminalOptions
+ * @class
+ * TODO: implement vscode.terminal interface
+ */
 export class AMPLTerminal {
+  /**
+   * name of the terminal
+   */
   public name: string;
+
+  /**
+   * path to the AMPL executable -- either from the configuration or from the PATH environment variable
+   */
   public amplPath: string =
     vscode.workspace.getConfiguration("ampl").get<string>("pathToExecutable") ||
     findExecutable("ampl.exe");
+
+  /**
+   * arguments to pass to the AMPL executable - comes from user settings
+   */
   public executableArgs: string[] = this.amplPath
-    ? vscode.workspace
-        .getConfiguration("ampl")
-        .get<Array<string>>("ampl.exeArgs") || []
+    ? vscode.workspace.getConfiguration("ampl").get<string[]>("exeArgs") || []
     : [];
+
+  /**
+   * terminal options for the AMPL terminal, constructed from the amplPath and executableArgs
+   */
   public terminalOptions: vscode.TerminalOptions;
 
+  /**
+   * constructor for the AMPLTerminal
+   * @param {string} name - the name of the terminal
+   */
   constructor(name?: string) {
     this.name = name || "AMPL";
     this.terminalOptions = {
@@ -89,6 +111,11 @@ export function getKeywordMarkdown(
   return markdownString;
 }
 
+/**
+ * looks for the executable in the PATH environment variable
+ * @param {string} exeName - the name of the executable to find
+ * @returns
+ */
 export function findExecutable(exeName: string): string {
   const path = process.env.PATH;
   if (path) {

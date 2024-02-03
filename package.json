@@ -30,7 +30,7 @@
 					"type": "string",
 					"scope": "machine",
 					"default": "",
-					"description": "Specifies the path to the AMPL command executable."
+					"description": "Specifies the path to the AMPL command executable. By default, the extension will look for the executable in the system's PATH."
 				},
 				"ampl.useRelativePath": {
 					"type": "boolean",
@@ -64,8 +64,7 @@
 			{
 				"command": "ampl.openConsole",
 				"title": "AMPL: Open Console",
-				"icon": "$(terminal)",
-				"enablement": "editorLangId == ampl"
+				"icon": "$(terminal)"
 			},
 			{
 				"command": "ampl.runFile",
@@ -77,13 +76,15 @@
 				"command": "ampl.solve",
 				"title": "AMPL: Solve",
 				"icon": "$(play)",
-				"shortTitle": "Solve"
+				"shortTitle": "Solve",
+				"enablement": "editorLangId == ampl"
 			},
 			{
 				"command": "ampl.reset",
 				"title": "AMPL: Reset",
 				"icon": "$(trash)",
-				"shortTitle": "Reset"
+				"shortTitle": "Reset",
+				"enablement": "editorLangId == ampl"
 			}
 		],
 		"languages": [
@@ -157,7 +158,6 @@
 		"@typescript-eslint/parser": "^6.20.0",
 		"eslint": "^8.56.0",
 		"glob": "10.3.10",
-		"mocha": "10.2.0",
 		"path": "0.12.7",
 		"tslint": "6.1.3",
 		"typescript": "5.3.3",

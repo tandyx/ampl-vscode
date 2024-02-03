@@ -11,7 +11,6 @@ export function activate(context: vscode.ExtensionContext) {
       "utf-8"
     )
   );
-
   const dispose1 = vscode.commands.registerCommand(
     "ampl.openConsole",
     openAMPLConsole
@@ -66,10 +65,9 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 /**
- * function to run the ampl file in a preexisiting console
+ * function to run the ampl file
  * @returns {void}
  */
-
 export function runFile(): void {
   const terminal = getAmplConsole();
   const editor = vscode.window.activeTextEditor;
@@ -77,7 +75,7 @@ export function runFile(): void {
   const document = editor.document;
   const name: string = vscode.workspace
     .getConfiguration("ampl")
-    .get<string>("useRelativePath")
+    .get<boolean>("useRelativePath")
     ? vscode.workspace.asRelativePath(document.fileName)
     : document.fileName;
   switch (path.extname(document.fileName)) {

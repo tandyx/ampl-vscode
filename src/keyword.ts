@@ -7,20 +7,31 @@
  * keyword interface for reading from keyword.json
  * @export Keyword
  * @interface Keyword
- * @property {string} name - the name of the keyword
- * @property {DatatypeEnum} [datatype] - the datatype of the keyword
- * @property {string} description - the description of the keyword
- * @property {TypeEnum} type - the type of the keyword
- * @property {string} [example] - an example of the keyword
- * @property {Parameter[]} [parameters] - the parameters of the keyword
- *
  */
 export interface Keyword {
+  /**
+   * the name of the keyword
+   */
   name: string;
+  /**
+   * the datatype of the keyword (optional) - as per the enum
+   */
   datatype?: DatatypeEnum;
+  /**
+   * the description of the keyword
+   */
   description: string;
+  /**
+   * the type of the keyword - as per the enum
+   */
   type: TypeEnum;
+  /**
+   * an example of the keyword (optional)
+   */
   example?: string;
+  /**
+   * the parameters of the keyword (optional)
+   */
   parameters?: Parameter[];
 }
 
@@ -28,25 +39,39 @@ export interface Keyword {
  * enum for the datatype of a keyword
  * @export DatatypeEnum
  * @enum {string}
- * @readonly
- * @property {string} Boolean - boolean datatype
- * @property {string} Expression - expression datatype
- * @property {string} Float - float datatype
- * @property {string} Integer - integer datatype
- * @property {string} Null - null datatype
- * @property {string} Object - object datatype
- * @property {string} Set - set datatype
- * @property {string} String - string datatype
- *
  */
 export enum DatatypeEnum {
+  /**
+   * boolean datatype
+   */
   Boolean = "boolean",
+  /**
+   * expression datatype
+   */
   Expression = "expression",
+  /**
+   * float datatype
+   */
   Float = "float",
+  /**
+   * integer datatype
+   */
   Integer = "integer",
+  /**
+   * null datatype
+   */
   Null = "null",
+  /**
+   * object datatype
+   */
   Object = "object",
+  /**
+   * set datatype
+   */
   Set = "set",
+  /**
+   * string datatype
+   */
   String = "string",
 }
 
@@ -54,19 +79,31 @@ export enum DatatypeEnum {
  * interface for the parameters of a keyword
  * @export Parameter
  * @interface Parameter
- * @property {string} name - the name of the parameter
- * @property {string} [description] - the description of the parameter
- * @property {DatatypeEnum} [type] - the datatype of the parameter
- * @property {number | null | string} [default] - the default value of the parameter
- * @property {number} [max] - the maximum value of the parameter
- * @property {number} [min] - the minimum value of the parameter
  */
 export interface Parameter {
+  /**
+   * the name of the parameter
+   */
   name: string;
+  /**
+   * the description of the parameter (optional)
+   */
   description?: string;
+  /**
+   * the datatype of the parameter (optional)
+   */
   type?: DatatypeEnum;
+  /**
+   * the default value of the parameter (optional)
+   */
   default?: number | null | string;
+  /**
+   * the maximum value of the parameter (optional)
+   */
   max?: number;
+  /**
+   * the minimum value of the parameter (optional)
+   */
   min?: number;
 }
 
@@ -74,18 +111,29 @@ export interface Parameter {
  * enum for the type of a keyword
  * @export TypeEnum
  * @enum {string}
- * @readonly
- * @property {string} Constant - constant keyword
- * @property {string} Declaration - declaration keyword
- * @property {string} Function - function keyword
- * @property {string} Keyword - keyword keyword
- * @property {string} Type - type keyword
  */
-
 export enum TypeEnum {
+  /**
+   * Constant - constant keyword
+   */
   Constant = "constant",
+  /**
+   * Declaration - declaration keyword
+   */
   Declaration = "declaration",
+  /**
+   * Function - function keyword
+   */
+
   Function = "function",
+
+  /**
+   * Keyword - keyword keyword
+   */
   Keyword = "keyword",
+
+  /**
+   * Type - type keyword
+   */
   Type = "type",
 }
