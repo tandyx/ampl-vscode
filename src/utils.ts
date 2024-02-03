@@ -87,7 +87,7 @@ export function getKeywordMarkdown(
   keyword: _keyword.Keyword
 ): vscode.MarkdownString {
   const markdownString = new vscode.MarkdownString();
-  markdownString.appendMarkdown(`## ${keyword.name}\n---\n`);
+  // markdownString.appendMarkdown(`#${keyword.name}\n`);
   if (keyword.type === "constant" && keyword.datatype) {
     markdownString.appendMarkdown(`(${keyword.datatype}): `);
   }
@@ -104,8 +104,7 @@ export function getKeywordMarkdown(
       markdownString.appendMarkdown("\n**Example**:\n");
       markdownString.appendCodeblock(keyword.example, "ampl");
     }
-  }
-  if (keyword.example) {
+  } else if (keyword.example) {
     markdownString.appendCodeblock(keyword.example, "ampl");
   }
   return markdownString;
