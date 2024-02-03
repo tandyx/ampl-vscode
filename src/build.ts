@@ -2,13 +2,13 @@ import * as fs from "fs";
 import * as path from "path";
 import * as keyword from "./keyword";
 
-type KeywordType = {
-  keyword: string;
-  function: string;
-  declaration: string;
-  constant: string;
-  type: string;
-};
+enum KeywordType {
+  keyword = "keyword.control.ampl",
+  function = "entity.name.function.ampl",
+  declaration = "storage.type.ampl",
+  constant = "constant.language.ampl",
+  type = "storage.type.ampl", // eslint-disable-line
+}
 
 const resourcesPath = path.join(__dirname, "..", "resources");
 
@@ -33,14 +33,6 @@ function build(): void {
     )
   );
 
-  const keywordType: KeywordType = {
-    keyword: "keyword.control.ampl",
-    function: "entity.name.function.ampl",
-    declaration: "storage.type.ampl",
-    constant: "constant.language.ampl",
-    type: "storage.type.ampl",
-  };
-
   const types: Record<string, string> = {};
 
   for (const keyword of keywords) {
@@ -56,7 +48,7 @@ function build(): void {
       match:
         value.slice(0, -1) +
         (key === "declaration" ? ")\\b)|s\\.t\\." : ")\\b)"),
-      name: keywordType[key as keyof KeywordType],
+      name: KeywordType[key as keyof typeof KeywordType],
     };
     baseJson.repository.general.patterns.splice(-4, 0, { include: `#${key}` });
   }
