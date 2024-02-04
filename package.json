@@ -2,7 +2,7 @@
 	"name": "ampl-vscode",
 	"displayName": "AMPL for VS Code",
 	"description": "Run AMPL files in VS Code",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "johan-cho",
 	"author": {
 		"name": "Johan Cho"
