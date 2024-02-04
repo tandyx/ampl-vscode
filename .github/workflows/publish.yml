@@ -1,7 +1,12 @@
+# on:
+#   release:
+#     types:
+#       - published
+
 on:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - master
 
 name: Deploy Extension
 jobs:
