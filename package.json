@@ -1,6 +1,6 @@
 {
-	"name": "ampl",
-	"displayName": "AMPL",
+	"name": "ampl-vscode",
+	"displayName": "AMPL for VS Code",
 	"description": "Run AMPL files in VS Code",
 	"version": "0.0.1",
 	"publisher": "johan-cho",
@@ -12,7 +12,7 @@
 		"type": "git",
 		"url": "https://github.com/johan-cho/ampl-vscode"
 	},
-	"icon": "./img/logo.png",
+	"icon": "img/logo.png",
 	"engines": {
 		"vscode": "^1.86.0"
 	},
@@ -128,13 +128,6 @@
 				}
 			]
 		},
-		"iconThemes": [
-			{
-				"id": "ampl",
-				"label": "AMPL",
-				"path": "./resources/icons.json"
-			}
-		],
 		"terminal": {
 			"profiles": [
 				{
