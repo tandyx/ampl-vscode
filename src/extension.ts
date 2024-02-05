@@ -73,6 +73,7 @@ export function runFile(): void {
   const editor = vscode.window.activeTextEditor;
   if (!editor) return;
   const document = editor.document;
+  document.save();
   const name: string = vscode.workspace
     .getConfiguration("ampl")
     .get<boolean>("useRelativePath")

@@ -1,5 +1,5 @@
-model "hw2_1.mod";
-data "hw2_1.dat"; 
+model "test_files/hw2_1.mod";
+data "test_files/hw2_1.dat"; 
 printf "==================\nObjective\n==================\n";
 
 solve;
@@ -16,8 +16,6 @@ param eps := 1e-6;
 for {i in 1.._ncons} {
     if (-eps <= _con[i].lslack <= eps) or (-eps <= _con[i].uslack <= eps) then
         printf "%s\tUslack: %.6f\tLslack: %.6f\tL.H.S.: %.6f\n", _conname[i], _con[i].uslack, _con[i].uslack, _con[i].body;
-    # if i mod 4 = 0 then 
-    #     printf "\n";
 }
 
 

@@ -1,8 +1,8 @@
 {
 	"name": "ampl-vscode",
 	"displayName": "AMPL for VS Code",
-	"description": "Run AMPL files in VS Code",
-	"version": "0.0.2",
+	"description": "AMPL language support for Visual Studio Code",
+	"version": "0.0.3",
 	"publisher": "johan-cho",
 	"author": {
 		"name": "Johan Cho"
@@ -20,9 +20,7 @@
 		"Programming Languages",
 		"Snippets"
 	],
-	"activationEvents": [
-		"onLanguage:ampl"
-	],
+	"activationEvents": [],
 	"main": "./out/extension.js",
 	"contributes": {
 		"configuration": {

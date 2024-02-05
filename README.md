@@ -1,35 +1,46 @@
 # ampl-vscode
 
-Unnoficial language extension for [ampl](https://ampl.com), a mathematical programming language. This was a fork of  @michael-sundvick's [original work](https://github.com/msundvick/ampl)
+Unnoficial language extension for [ampl](https://ampl.com), a mathematical programming language. This was a fork of  [@msundvick](https://github.com/msundvick)'s [original work](https://github.com/msundvick/ampl).
 
-this is still in development, please submit pull requests, issues or feature requests in the [repo](https://github.com/johan-cho/ampl-vscode.git).
+This extension is still in development, please submit pull requests, issues or feature requests in the [repo](https://github.com/johan-cho/ampl-vscode.git).
+
+Link to marketplace: <https://marketplace.visualstudio.com/items?itemName=johan-cho.ampl-vscode>
 
 ## Features
 
-- syntax coloring
-- definition on hover
-- include files in console
-- snippets
-- autocomplete
+- Syntax coloring, definition on hover
+- Additional terminal
+- Including files in terminal
+- Snippets, tab to complete keywords
 
-## requirements
+## Requirements
 
-a version of AMPL is needed to run files.
+- A version of AMPL is needed to run files. You could get a free license and install it on [ampl.com](https://ampl.com)
 
-## settings
+- Visual Studio Code 1.86.0 +
 
-This extension contributes the following settings:
+## Settings
 
 - `ampl.pathToExecutable`: path to `ampl.exe` -- defaults to looking for it on path
 - `ampl.useRelativePath`: toggles relative file paths when running through the ample console
 - `ampl.complierArgs`: arguments to feed into the ampl executable
 
-## building
+## Building
 
-you could build the extentsion by cloning the repo, and then running:
+Cloning:
+
+```shell
+git clone https://https://github.com/johan-cho/ampl-vscode.git
+```
+
+Running:
 
 ```shell
 npm run compile
 ```
 
-the source file for autocomplete, syntax coloring and definitions is [./resources/keywords.json](./resources/keywords.json).
+will build and compile the app. Press f5 to launch the debugger. The source file for autocomplete, syntax coloring and definitions is [./resources/keywords.json](./resources/keywords.json).
+
+## Contributions
+
+- Jamie Cho > [PR-4](https://github.com/johan-cho/ampl-vscode/pull/4)
