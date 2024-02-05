@@ -12,3 +12,5 @@
 
 - Update readme
 - Remove github releases from workflow, will use whenever master gets updated.
+- Update gitignore
+- save file on run
