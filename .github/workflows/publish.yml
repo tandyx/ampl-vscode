@@ -1,14 +1,16 @@
-on:
-  release:
-    types:
-      - published
-
 # on:
-#   push:
-#     branches:
-#       - master
-
+#   release:
+#     types:
+#       - published
 name: Deploy Extension
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+    types: [closed]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
