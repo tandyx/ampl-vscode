@@ -60,7 +60,7 @@
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of complementarity constraints before presolve",
         "name": "_nccons",
         "type": "constant"
@@ -72,13 +72,13 @@
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of constraints in current model",
         "name": "_ncons",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of objectives in current model",
         "name": "_nobjs",
         "type": "constant"
@@ -150,73 +150,73 @@
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of binary (0,1) variables",
         "name": "_snbvars",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of complementarity constraints after presolve",
         "name": "_snccons",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of general integer variables (excluding binaries)",
         "name": "_snivars",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of linear complementarity constraints",
         "name": "_snlcc",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of linear network constraints",
         "name": "_snlnc",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of nonlinear compl. constrs.: _snccons=_snlcc+_snnlcc",
         "name": "_snnlcc",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of nonlinear constraints",
         "name": "_snnlcons",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of nonlinear network constraints",
         "name": "_snnlnc",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of nonlinear objectives",
         "name": "_snnlobjs",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of nonlinear variables",
         "name": "_snnlv",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of constraint Jacobian matrix nonzeros",
         "name": "_snzcons",
         "type": "constant"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of objective gradient nonzeros",
         "name": "_snzobjs",
         "type": "constant"
@@ -386,7 +386,7 @@
         "type": "declaration"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "arity of S if S is a set, else 0; for use with _SETS",
         "example": "",
         "name": "arity",
@@ -475,7 +475,7 @@
         "type": "function"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from a Beta distribution. density(x) = x a^-1 ( 1^-x) b^-1 /(gamma(a) gamma(b)/gamma(a + b) ), x in [ 0 , 1 ]",
         "example": "",
         "name": "Beta",
@@ -518,7 +518,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of members in set S",
         "example": "",
         "name": "card",
@@ -532,7 +532,7 @@
         "type": "function"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from a Cauchy distribution. density(x) = 1/(pi( 1 + x 2 ) )",
         "example": "",
         "name": "Cauchy",
@@ -567,7 +567,7 @@
             {
                 "description": "integer to convert",
                 "name": "n",
-                "type": "integer"
+                "type": "int"
             }
         ],
         "type": "function"
@@ -731,7 +731,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from an Exponential distribution. density(x) = e^-x , x>=0",
         "example": "",
         "name": "Exponential",
@@ -782,7 +782,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from a Gamma distribution. density(x) = x a^-1 e^-x / gamma(a), x>=0",
         "example": "",
         "name": "Gamma",
@@ -822,7 +822,7 @@
         "type": "function"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "Unicode value of the first character in string s",
         "example": "",
         "name": "ichar",
@@ -856,7 +856,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "arity of entity E's indexing set card, arity, and indexarity also apply to unordered sets",
         "example": "",
         "name": "indexarity",
@@ -915,7 +915,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "Returns a random integer in the range [0, 224).",
         "example": "",
         "name": "Irand224",
@@ -937,7 +937,7 @@
         "type": "function"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "length of string s",
         "example": "",
         "name": "length",
@@ -1063,9 +1063,9 @@
         "name": "member",
         "parameters": [
             {
-                "description": "integer",
+                "description": "int",
                 "name": "j",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "description": "set",
@@ -1122,9 +1122,9 @@
             },
             {
                 "default": 1,
-                "description": "integer",
+                "description": "int",
                 "name": "k",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "default": null,
@@ -1148,9 +1148,9 @@
             },
             {
                 "default": 1,
-                "description": "integer",
+                "description": "int",
                 "name": "k",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "default": null,
@@ -1167,7 +1167,7 @@
         "type": "declaration"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from a Normal distribution. density(x) = e^-(x-avg)^2/(2*std^2) / (std*sqrt(2*pi))",
         "example": "",
         "name": "Normal",
@@ -1190,7 +1190,7 @@
         "type": "function"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from a Normal distribution with mean 0 and standard deviation 1. density(x) = e^-(x-0)^2/(2*1^2) / (1*sqrt(2*pi))",
         "example": "",
         "name": "Normal01",
@@ -1208,7 +1208,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "convert string s to number; error if stripping leading and trailing white space does not yield a valid decimal number",
         "example": "",
         "name": "num",
@@ -1222,7 +1222,7 @@
         "type": "function"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "strip leading white space, and interpret as much as possible of s as a number, but do not raise error",
         "example": "",
         "name": "num0",
@@ -1236,7 +1236,7 @@
         "type": "function"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "number of variables in current model",
         "name": "nvars",
         "type": "constant"
@@ -1257,7 +1257,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "ordinal position of member e in set for which it is dummy index",
         "example": "",
         "name": "ord",
@@ -1277,7 +1277,7 @@
         "type": "function"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "same as ord",
         "example": "",
         "name": "ord0",
@@ -1312,26 +1312,26 @@
         "type": "declaration"
     },
     {
-        "datatype": "integer",
+        "datatype": "int",
         "description": "remainder of x/y -- can be called with x mod y",
         "example": "",
         "name": "mod",
         "parameters": [
             {
-                "description": "integer",
+                "description": "int",
                 "name": "x",
-                "type": "integer"
+                "type": "int"
             },
             {
-                "description": "integer",
+                "description": "int",
                 "name": "y",
-                "type": "integer"
+                "type": "int"
             }
         ],
         "type": "function"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from a Poisson distribution. density(x) = e^-lambda lambda^x / x!, x>=0",
         "example": "",
         "name": "Poisson",
@@ -1355,7 +1355,7 @@
             {
                 "description": "precision",
                 "name": "n",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "description": "",
@@ -1378,9 +1378,9 @@
             },
             {
                 "default": 1,
-                "description": "integer",
+                "description": "int",
                 "name": "k",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "default": null,
@@ -1404,9 +1404,9 @@
             },
             {
                 "default": 1,
-                "description": "integer",
+                "description": "int",
                 "name": "k",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "default": null,
@@ -1487,7 +1487,7 @@
                 "default": 0,
                 "description": "precision",
                 "name": "n",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "description": "",
@@ -1666,13 +1666,13 @@
             {
                 "description": "starting position",
                 "name": "m",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "default": "length(s) - m + 1",
                 "description": "length of substring (optional)",
                 "name": "n",
-                "type": "integer"
+                "type": "int"
             },
             {
                 "description": "string to test",
@@ -1770,7 +1770,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from a Uniform distribution. density(x) = 1/(n-m), x in [m, n]",
         "example": "",
         "name": "Uniform",
@@ -1793,7 +1793,7 @@
         "type": "function"
     },
     {
-        "datatype": "number",
+        "datatype": "float",
         "description": "Returns a random value from a Uniform distribution. density(x) = 1, x in [0, 1]",
         "example": "",
         "name": "Uniform01",
