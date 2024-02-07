@@ -71,11 +71,11 @@
       "patterns": [
         {
           "name": "constant.character.escape.ampl",
-          "match": "\\\\(a|b|f|n|r|t|\\\"|\\'|\\\\)"
+          "match": "\\\\(a|b|f|n|r|t|v|\\?|0|\\\"|\\'|\\\\)"
         },
         {
           "name": "constant.language.ampl",
-          "match": "\\%(s|i|[-+]?[0-9]*\\.?[0-9]+f)"
+          "match": "\\%(c|d|e|f|g|i|s|[-+]?[0-9]*\\.?[0-9]+f)"
         },
         {
           "match": "%(\\w+%|\\d+)",
@@ -100,11 +100,11 @@
       "patterns": [
         {
           "name": "constant.character.escape.ampl",
-          "match": "\\\\(a|b|f|n|r|t|\\\"|\\'|\\\\)"
+          "match": "\\\\(a|b|f|n|r|t|v|\\?|0|\\\"|\\'|\\\\)"
         },
         {
           "name": "constant.language.ampl",
-          "match": "\\%(s|i|[-+]?[0-9]*\\.?[0-9]+f)"
+          "match": "\\%(c|d|e|f|g|i|s|[-+]?[0-9]*\\.?[0-9]+f)"
         },
         {
           "match": "%(\\w+%|\\d+)",

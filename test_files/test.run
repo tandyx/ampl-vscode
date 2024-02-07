@@ -1,0 +1,23 @@
+
+model "test.mod";
+data "test.dat";
+
+printf "==================\nObjective\n==================\n";
+
+solve;
+
+printf "==================\nVariables\n==================\n";
+
+# display _varname, _var;
+display {j in 1.._nvars} (_varname[j], _var[j], _var[j].rc);
+
+printf "==================\nActive constraints\n==================\n";
+
+expand;
+
+param eps:= 1e-6;
+for {i in 1.._ncons} {
+    if (-eps <= _con[i].lslack <= eps) or (-eps <= _con[i].uslack <= eps) then
+        printf "%s\tUslack: %f\tLslack: %.0f\tL.H.S.: %.6f\n", _conname[i], _con[i].uslack, _con[i].uslack, _con[i].body;
+}
+reset;
