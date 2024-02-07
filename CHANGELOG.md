@@ -14,3 +14,7 @@
 - Remove github releases from workflow, will use whenever master gets updated.
 - Update gitignore
 - Save file on run
+
+## 0.0.4
+
+- Add syntax highlighting to escape/placeholder characters in strings.

@@ -56,7 +56,7 @@ export enum DatatypeEnum {
   /**
    * integer datatype
    */
-  Integer = "integer",
+  Integer = "int",
   /**
    * null datatype
    */

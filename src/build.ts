@@ -5,9 +5,10 @@ import * as keyword from "./keyword";
 enum KeywordType {
   keyword = "keyword.control.ampl",
   function = "entity.name.function.ampl",
-  declaration = "storage.type.ampl",
+  declaration = "keyword.declaration.ampl", // eslint-disable-line
   constant = "constant.language.ampl",
   type = "storage.type.ampl", // eslint-disable-line
+  class = "entity.name.class.ampl",
 }
 
 const resourcesPath = path.join(__dirname, "..", "resources");
@@ -34,6 +35,7 @@ function build(): void {
   );
 
   const types: Record<string, string> = {};
+  const classes: Set<string> = new Set();
 
   for (const keyword of keywords) {
     if (!types[keyword.type]) {
@@ -41,6 +43,8 @@ function build(): void {
       continue;
     }
     types[keyword.type] += `${keyword.name}|`;
+
+    if (keyword.datatype) classes.add(keyword.datatype);
   }
 
   for (const [key, value] of Object.entries(types)) {
@@ -52,6 +56,12 @@ function build(): void {
     };
     baseJson.repository.general.patterns.splice(-4, 0, { include: `#${key}` });
   }
+
+  baseJson.repository["classes"] = {
+    match: `\\b((${Array.from(classes).join("|")})\\b)`,
+    name: KeywordType.class,
+  };
+  baseJson.repository.general.patterns.splice(-4, 0, { include: "#classes" });
 
   fs.writeFileSync(
     path.join(resourcesPath, "AMPL.tmLanguage.json"),

@@ -2,7 +2,7 @@
 	"name": "ampl-vscode",
 	"displayName": "AMPL for VS Code",
 	"description": "AMPL language support for Visual Studio Code",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"publisher": "johan-cho",
 	"author": {
 		"name": "Johan Cho"
@@ -18,7 +18,8 @@
 	},
 	"categories": [
 		"Programming Languages",
-		"Snippets"
+		"Snippets",
+		"Other"
 	],
 	"activationEvents": [],
 	"main": "./out/extension.js",

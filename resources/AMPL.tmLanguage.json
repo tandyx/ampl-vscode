@@ -40,6 +40,9 @@
                     "include": "#type"
                 },
                 {
+                    "include": "#classes"
+                },
+                {
                     "include": "#suffix"
                 },
                 {
@@ -85,6 +88,14 @@
             },
             "patterns": [
                 {
+                    "name": "constant.character.escape.ampl",
+                    "match": "\\\\(a|b|f|n|r|t|v|\\?|0|\\\"|\\'|\\\\)"
+                },
+                {
+                    "name": "constant.language.ampl",
+                    "match": "\\%(c|d|e|f|g|i|s|[-+]?[0-9]*\\.?[0-9]+f)"
+                },
+                {
                     "match": "%(\\w+%|\\d+)",
                     "name": "entity.name.class.ampl"
                 }
@@ -106,6 +117,14 @@
             },
             "patterns": [
                 {
+                    "name": "constant.character.escape.ampl",
+                    "match": "\\\\(a|b|f|n|r|t|v|\\?|0|\\\"|\\'|\\\\)"
+                },
+                {
+                    "name": "constant.language.ampl",
+                    "match": "\\%(c|d|e|f|g|i|s|([-+]?[0-9]*\\.?[0-9]+f))"
+                },
+                {
                     "match": "%(\\w+%|\\d+)",
                     "name": "entity.name.class.ampl"
                 }
@@ -116,8 +135,8 @@
             "match": "(?<![\\d.])\\b\\d+(\\.\\d+)?([eE]-?\\d+)?|\\.\\d+([eE]-?\\d+)?|(?i)([+-]?infinity)"
         },
         "suffix": {
-            "name": "support.suffix.ampl",
-            "match": "\\.([as]?status|defeqn|defvar|exitcode|message|result|lb[012s]?|ub[012s]?|[ul]?rc|val|init0?|body|dinit0?|[ul]?dual|[ul]?slack)|(<<|>>)"
+            "name": "variable.suffix.ampl",
+            "match": "^\\.(?:[as]?status|defeqn|defvar|exitcode|message|result|lb[012s]?|ub[012s]?|[ul]?rc|val|init0?|body|dinit0?|[ul]?dual|[ul]?slack)|(<<|>>)"
         },
         "operator": {
             "name": "keyword.operator.ampl",
@@ -167,11 +186,15 @@
         },
         "declaration": {
             "match": "\\b((arc|maximize|minimize|node|param|set|function|subj to|subject to|var)\\b)|s\\.t\\.",
-            "name": "storage.type.ampl"
+            "name": "keyword.declaration.ampl"
         },
         "type": {
             "match": "\\b((binary|integer|symbolic)\\b)",
             "name": "storage.type.ampl"
+        },
+        "classes": {
+            "match": "\\b((set|float|int|object|string)\\b)",
+            "name": "entity.name.class.ampl"
         }
     },
     "patterns": [
