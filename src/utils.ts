@@ -87,7 +87,7 @@ export function getKeywordMarkdown(
   keyword: _keyword.Keyword
 ): vscode.MarkdownString {
   const markdownString = new vscode.MarkdownString();
-  markdownString.appendMarkdown(`#${keyword.name}\n`);
+  // markdownString.appendMarkdown(`#${keyword.name}\n`);
   // if (keyword.type === "function") {
   //   markdownString.appendCodeblock(
   //     `${keyword.name} (${(keyword.parameters || []).map().join(", ")})`,
