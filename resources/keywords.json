@@ -12,8 +12,8 @@
         "type": "constant"
     },
     {
-        "datatype": "Set[string]",
-        "description": "set of all declared variable names",
+        "datatype": "Set",
+        "description": "set of all declared variables",
         "name": "_var",
         "type": "constant"
     },
@@ -309,8 +309,8 @@
         "type": "constant"
     },
     {
-        "datatype": "Set",
-        "description": "set of all variables in the current model. \n in an iterating context, you could use: \n ```ampl \n {j in 1.._nvars} (_varname[j], _var[j], _var[j].rc) \n```\nto display all variables",
+        "datatype": "int",
+        "description": "number of variables in current model",
         "name": "_nvars",
         "type": "constant"
     },
