@@ -104,7 +104,7 @@
         },
         {
           "name": "constant.language.ampl",
-          "match": "\\%(c|d|e|f|g|i|s|[-+]?[0-9]*\\.?[0-9]+f)"
+          "match": "\\%(c|d|e|f|g|i|s|([-+]?[0-9]*\\.?[0-9]+f))"
         },
         {
           "match": "%(\\w+%|\\d+)",

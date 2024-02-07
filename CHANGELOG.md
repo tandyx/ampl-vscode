@@ -18,4 +18,3 @@
 ## 0.0.4
 
 - Add syntax highlighting to escape/placeholder characters in strings.
-
