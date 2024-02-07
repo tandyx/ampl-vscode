@@ -88,32 +88,58 @@ export function getKeywordMarkdown(
 ): vscode.MarkdownString {
   const markdownString = new vscode.MarkdownString();
   // markdownString.appendMarkdown(`#${keyword.name}\n`);
-  // if (keyword.type === "function") {
-  //   markdownString.appendCodeblock(
-  //     `${keyword.name} (${(keyword.parameters || []).map().join(", ")})`,
-  //     "ampl"
-  //   );
-  // }
-
-  if (keyword.type === "constant" && keyword.datatype) {
-    markdownString.appendMarkdown(`(${keyword.datatype}): `);
+  if (keyword.type === "function") {
+    markdownString.appendCodeblock(
+      `${keyword.name}(${
+        keyword.parameters
+          ? keyword.parameters
+              .map(
+                (p) =>
+                  `${p.name.replace("(", "")}${
+                    p.default !== undefined ? "?" : ""
+                  }${p.name !== "..." ? ": " + p.type : " " + p.type}${
+                    p.default !== undefined ? " = " + p.default : ""
+                  }`
+              )
+              .join(", ")
+          : ""
+      }) -> ${keyword.datatype}`,
+      "ampl"
+    );
   }
+  if (keyword.type === "constant") {
+    markdownString.appendCodeblock(
+      `${keyword.name}: ${keyword.datatype}`,
+      "ampl"
+    );
+  }
+
   markdownString.appendMarkdown(`${keyword.description}\n\n`);
-  if (keyword.type === "function" && keyword.parameters) {
+  if (
+    keyword.type === "function" &&
+    keyword.parameters &&
+    keyword.parameters.length > 0
+  ) {
     markdownString.appendMarkdown("**Arguments**:\n");
     for (const param of keyword.parameters) {
       markdownString.appendMarkdown(
-        `- \`${param.name}\` (${param.type}): ${param.description}\n`
+        `- \`${param.name}${
+          param.name !== "..." ? ": " + param.type : " " + param.type
+        }${param.default !== undefined ? " = " + param.default : ""}\`: ${
+          param.description
+        }\n`
       );
     }
+  }
+  if (keyword.type === "function") {
     markdownString.appendMarkdown(`\n**returns**: ${keyword.datatype}\n`);
-    if (keyword.example && keyword.type === "function") {
-      markdownString.appendMarkdown("\n**Example**:\n");
-      markdownString.appendCodeblock(keyword.example, "ampl");
-    }
-  } else if (keyword.example) {
+  }
+
+  if (keyword.example) {
+    markdownString.appendMarkdown("\n**Example**:\n");
     markdownString.appendCodeblock(keyword.example, "ampl");
   }
+
   return markdownString;
 }
 
