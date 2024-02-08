@@ -18,3 +18,10 @@
 ## 0.0.4
 
 - Add syntax highlighting to escape/placeholder characters in strings.
+
+## 0.0.5
+
+- Improve definition on hover
+- Change some definitions <-- more work needs to be done here.
+- remove `base.tmLanguage.json`
+- update `package.json`

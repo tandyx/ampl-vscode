@@ -42,6 +42,11 @@ export interface Keyword {
  */
 export enum DatatypeEnum {
   /**
+   * any datatype
+   */
+  Any = "any",
+
+  /**
    * boolean datatype
    */
   Boolean = "boolean",
@@ -68,11 +73,26 @@ export enum DatatypeEnum {
   /**
    * set datatype
    */
-  Set = "set",
+  Set = "Set",
   /**
    * string datatype
    */
   String = "string",
+
+  /**
+   * Set of strings datatype
+   */
+  SetString = "Set[string]",
+
+  /**
+   * Set of objects datatype
+   */
+  SetObject = "Set[object]",
+
+  /**
+   * numeric datatype -- float OR integer
+   */
+  Numeric = "numeric",
 }
 
 /**

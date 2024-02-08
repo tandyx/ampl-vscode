@@ -6,14 +6,14 @@
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "names of all variables",
         "name": "_varname",
         "type": "constant"
     },
     {
-        "datatype": "set",
-        "description": "set of all declared variable names",
+        "datatype": "Set",
+        "description": "set of all declared variables",
         "name": "_var",
         "type": "constant"
     },
@@ -36,25 +36,25 @@
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "set of all declared constraint names",
         "name": "_CONS",
         "type": "constant"
     },
     {
-        "datatype": "set",
-        "description": "synonyms for constraints in current model _con{1.._ncons}",
+        "datatype": "Set",
+        "description": "synonyms for constraints in current model \n ```ampl \n for {i in 1.._ncons} { _conname[i], _con[i] }\n```",
         "name": "_con",
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "set of all declared environment names",
         "name": "_ENVS",
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[object]",
         "description": "set of all declared user-defined functions",
         "name": "_FUNCS",
         "type": "constant"
@@ -66,7 +66,7 @@
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "set of all declared index names",
         "name": "_conname",
         "type": "constant"
@@ -84,43 +84,43 @@
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "names of objectives in current model",
-        "name": "_objname{1.._nobjs}",
+        "name": "_objname",
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "set of all declared objective names",
         "name": "_OBJS",
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[object]",
         "description": "synonyms for objectives in current model",
-        "name": "_obj{1.._nobjs}",
+        "name": "_obj",
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "set of all declared parameter names",
         "name": "_PARS",
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "set of all declared problem names",
         "name": "_PROBS",
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set",
         "description": "if _scvar[i] > 0, _svar[scvar[i]] complements _scon[i]",
-        "name": "_scvar{1.._sncons}",
+        "name": "_scvar",
         "type": "constant"
     },
     {
-        "datatype": "set",
+        "datatype": "Set[string]",
         "description": "set of all declared set names",
         "name": "_SETS",
         "type": "constant"
@@ -309,8 +309,8 @@
         "type": "constant"
     },
     {
-        "datatype": "set",
-        "description": "set of all variables in the current model. \n in an iterating context, you could use: \n ```ampl \n {j in 1.._nvars} (_varname[j], _var[j], _var[j].rc) \n```\nto display all variables",
+        "datatype": "int",
+        "description": "number of variables in current model",
         "name": "_nvars",
         "type": "constant"
     },
@@ -394,7 +394,7 @@
             {
                 "description": "set",
                 "name": "S",
-                "type": "set"
+                "type": "Set"
             }
         ],
         "type": "function"
@@ -481,16 +481,10 @@
         "name": "Beta",
         "parameters": [
             {
-                "default": 1,
-                "max": 100,
-                "min": 0,
                 "name": "a",
                 "type": "float"
             },
             {
-                "default": 1,
-                "max": 100,
-                "min": 0,
                 "name": "b",
                 "type": "float"
             }
@@ -526,7 +520,7 @@
             {
                 "description": "set",
                 "name": "S",
-                "type": "set"
+                "type": "Set"
             }
         ],
         "type": "function"
@@ -677,6 +671,16 @@
         "type": "keyword"
     },
     {
+        "name": "csvdisplay",
+        "type": "keyword",
+        "description": ""
+    },
+    {
+        "name": "_display",
+        "type": "keyword",
+        "description": ""
+    },
+    {
         "description": "",
         "name": "div",
         "type": "keyword"
@@ -747,7 +751,7 @@
             {
                 "description": "set",
                 "name": "S",
-                "type": "set"
+                "type": "Set"
             }
         ],
         "type": "function"
@@ -788,9 +792,6 @@
         "name": "Gamma",
         "parameters": [
             {
-                "default": 1,
-                "max": 100,
-                "min": 0,
                 "name": "a",
                 "type": "float"
             }
@@ -804,6 +805,11 @@
         "name": "gsub",
         "parameters": [
             {
+                "description": "string to test",
+                "name": "s",
+                "type": "string"
+            },
+            {
                 "description": "regular expression",
                 "name": "re",
                 "type": "string"
@@ -811,11 +817,6 @@
             {
                 "description": "replacement string",
                 "name": "repl",
-                "type": "string"
-            },
-            {
-                "description": "string to test",
-                "name": "s",
                 "type": "string"
             }
         ],
@@ -931,7 +932,7 @@
             {
                 "description": "set",
                 "name": "S",
-                "type": "set"
+                "type": "Set"
             }
         ],
         "type": "function"
@@ -1015,13 +1016,13 @@
         "name": "match",
         "parameters": [
             {
-                "description": "regular expression",
-                "name": "re",
+                "description": "string to test",
+                "name": "s",
                 "type": "string"
             },
             {
-                "description": "string to test",
-                "name": "s",
+                "description": "regular expression",
+                "name": "re",
                 "type": "string"
             }
         ],
@@ -1035,18 +1036,18 @@
         "parameters": [
             {
                 "description": "",
-                "name": "...",
-                "type": "float"
-            },
-            {
-                "description": "",
                 "name": "x",
-                "type": "float"
+                "type": "numeric"
             },
             {
                 "description": "",
                 "name": "y",
-                "type": "float"
+                "type": "numeric"
+            },
+            {
+                "description": "",
+                "name": "...",
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -1063,14 +1064,14 @@
         "name": "member",
         "parameters": [
             {
+                "description": "set",
+                "name": "S",
+                "type": "Set"
+            },
+            {
                 "description": "int",
                 "name": "j",
                 "type": "int"
-            },
-            {
-                "description": "set",
-                "name": "S",
-                "type": "set"
             }
         ],
         "type": "function"
@@ -1083,18 +1084,18 @@
         "parameters": [
             {
                 "description": "",
-                "name": "...",
-                "type": "float"
-            },
-            {
-                "description": "",
                 "name": "x",
-                "type": "float"
+                "type": "numeric"
             },
             {
                 "description": "",
                 "name": "y",
-                "type": "float"
+                "type": "numeric"
+            },
+            {
+                "description": "",
+                "name": "...",
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -1121,16 +1122,16 @@
                 "type": "object"
             },
             {
+                "default": null,
+                "description": "set",
+                "name": "S",
+                "type": "Set"
+            },
+            {
                 "default": 1,
                 "description": "int",
                 "name": "k",
                 "type": "int"
-            },
-            {
-                "default": null,
-                "description": "set",
-                "name": "S",
-                "type": "set"
             }
         ],
         "type": "function"
@@ -1147,16 +1148,16 @@
                 "type": "object"
             },
             {
+                "default": null,
+                "description": "set",
+                "name": "S",
+                "type": "Set"
+            },
+            {
                 "default": 1,
                 "description": "int",
                 "name": "k",
                 "type": "int"
-            },
-            {
-                "default": null,
-                "description": "set",
-                "name": "S",
-                "type": "set"
             }
         ],
         "type": "function"
@@ -1173,16 +1174,10 @@
         "name": "Normal",
         "parameters": [
             {
-                "default": 0,
-                "max": 100,
-                "min": 0,
                 "name": "avg",
                 "type": "float"
             },
             {
-                "default": 1,
-                "max": 100,
-                "min": 0,
                 "name": "std",
                 "type": "float"
             }
@@ -1271,7 +1266,7 @@
                 "default": null,
                 "description": "set",
                 "name": "S",
-                "type": "set"
+                "type": "Set"
             }
         ],
         "type": "function"
@@ -1291,7 +1286,7 @@
                 "default": null,
                 "description": "set",
                 "name": "S",
-                "type": "set"
+                "type": "Set"
             }
         ],
         "type": "function"
@@ -1312,34 +1307,12 @@
         "type": "declaration"
     },
     {
-        "datatype": "int",
-        "description": "remainder of x/y -- can be called with x mod y",
-        "example": "",
-        "name": "mod",
-        "parameters": [
-            {
-                "description": "int",
-                "name": "x",
-                "type": "int"
-            },
-            {
-                "description": "int",
-                "name": "y",
-                "type": "int"
-            }
-        ],
-        "type": "function"
-    },
-    {
         "datatype": "float",
         "description": "Returns a random value from a Poisson distribution. density(x) = e^-lambda lambda^x / x!, x>=0",
         "example": "",
         "name": "Poisson",
         "parameters": [
             {
-                "default": 1,
-                "max": 100,
-                "min": 0,
                 "name": "lambda",
                 "type": "float"
             }
@@ -1377,16 +1350,16 @@
                 "type": "object"
             },
             {
+                "default": null,
+                "description": "set",
+                "name": "S",
+                "type": "Set"
+            },
+            {
                 "default": 1,
                 "description": "int",
                 "name": "k",
                 "type": "int"
-            },
-            {
-                "default": null,
-                "description": "set",
-                "name": "S",
-                "type": "set"
             }
         ],
         "type": "function"
@@ -1403,16 +1376,16 @@
                 "type": "object"
             },
             {
+                "default": null,
+                "description": "set",
+                "name": "S",
+                "type": "Set"
+            },
+            {
                 "default": 1,
                 "description": "int",
                 "name": "k",
                 "type": "int"
-            },
-            {
-                "default": null,
-                "description": "set",
-                "name": "S",
-                "type": "set"
             }
         ],
         "type": "function"
@@ -1484,15 +1457,15 @@
         "name": "round",
         "parameters": [
             {
+                "description": "",
+                "name": "x",
+                "type": "numeric"
+            },
+            {
                 "default": 0,
                 "description": "precision",
                 "name": "n",
                 "type": "int"
-            },
-            {
-                "description": "",
-                "name": "x",
-                "type": "float"
             }
         ],
         "type": "function"
@@ -1597,15 +1570,14 @@
         "name": "sprintf",
         "parameters": [
             {
-                "default": "none",
-                "description": "list of expressions to format (optional)",
-                "name": "exprlistopt",
-                "type": "expression"
-            },
-            {
-                "description": "format string",
+                "description": "string to format",
                 "name": "f",
                 "type": "string"
+            },
+            {
+                "description": "expressions to format into f",
+                "name": "...",
+                "type": "any"
             }
         ],
         "type": "function"
@@ -1630,6 +1602,11 @@
         "name": "sub",
         "parameters": [
             {
+                "description": "string to test",
+                "name": "s",
+                "type": "string"
+            },
+            {
                 "description": "regular expression",
                 "name": "re",
                 "type": "string"
@@ -1637,11 +1614,6 @@
             {
                 "description": "replacement string",
                 "name": "repl",
-                "type": "string"
-            },
-            {
-                "description": "string to test",
-                "name": "s",
                 "type": "string"
             }
         ],
@@ -1664,6 +1636,11 @@
         "name": "substr",
         "parameters": [
             {
+                "description": "string to test",
+                "name": "s",
+                "type": "string"
+            },
+            {
                 "description": "starting position",
                 "name": "m",
                 "type": "int"
@@ -1673,11 +1650,6 @@
                 "description": "length of substring (optional)",
                 "name": "n",
                 "type": "int"
-            },
-            {
-                "description": "string to test",
-                "name": "s",
-                "type": "string"
             }
         ],
         "type": "function"
@@ -1753,13 +1725,13 @@
         "name": "trunc",
         "parameters": [
             {
+                "description": "",
+                "name": "x"
+            },
+            {
                 "default": 0,
                 "description": "precision",
                 "name": "n"
-            },
-            {
-                "description": "",
-                "name": "x"
             }
         ],
         "type": "function"
@@ -1776,16 +1748,10 @@
         "name": "Uniform",
         "parameters": [
             {
-                "default": 0,
-                "max": 100,
-                "min": 0,
                 "name": "m",
                 "type": "float"
             },
             {
-                "default": 1,
-                "max": 100,
-                "min": 0,
                 "name": "n",
                 "type": "float"
             }
