@@ -43,9 +43,10 @@
     },
     {
         "datatype": "Set",
-        "description": "synonyms for constraints in current model \n ```ampl \n for {i in 1.._ncons} { _conname[i], _con[i] }\n```",
+        "description": "synonyms for constraints in current model ",
         "name": "_con",
-        "type": "constant"
+        "type": "constant",
+        "example": "for {i in 1.._ncons} { _conname[i], _con[i] }"
     },
     {
         "datatype": "Set[string]",
@@ -401,7 +402,7 @@
     },
     {
         "datatype": "float",
-        "description": "inverse sine,sin^-1 ",
+        "description": "inverse sine\n\n`sin(x)^-1`",
         "example": "",
         "name": "asin",
         "parameters": [
@@ -415,7 +416,7 @@
     },
     {
         "datatype": "float",
-        "description": "inverse hyperbolic sine,sinh^-1 ",
+        "description": "inverse hyperbolic sine\n\n`sinh(x)^-1` ",
         "example": "",
         "name": "asinh",
         "parameters": [
@@ -443,26 +444,26 @@
     },
     {
         "datatype": "float",
-        "description": "inverse tangent,tan^-1 (y / x)",
+        "description": "inverse tangent\n\n`tan^-1(y/x)`",
         "example": "",
         "name": "atan2",
         "parameters": [
             {
                 "description": "real number",
                 "name": "x",
-                "type": "float"
+                "type": "numeric"
             },
             {
                 "description": "real number",
                 "name": "y",
-                "type": "float"
+                "type": "numeric"
             }
         ],
         "type": "function"
     },
     {
         "datatype": "float",
-        "description": "inverse hyperbolic tangent,tanh^-1 ",
+        "description": "inverse hyperbolic tangent\n\n`tanh(x)^-1`",
         "example": "",
         "name": "atanh",
         "parameters": [
@@ -476,17 +477,19 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from a Beta distribution. density(x) = x a^-1 ( 1^-x) b^-1 /(gamma(a) gamma(b)/gamma(a + b) ), x in [ 0 , 1 ]",
+        "description": "Returns a random value from a Beta distribution.\n\n `density(x) = x a^-1 ( 1^-x) b^-1 /(gamma(a) gamma(b)/gamma(a + b) ); x in [ 0 , 1 ]`",
         "example": "",
         "name": "Beta",
         "parameters": [
             {
                 "name": "a",
-                "type": "float"
+                "type": "float",
+                "description": "shape parameter 1"
             },
             {
                 "name": "b",
-                "type": "float"
+                "type": "float",
+                "description": "shape parameter 2"
             }
         ],
         "type": "function"
@@ -527,7 +530,7 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from a Cauchy distribution. density(x) = 1/(pi( 1 + x 2 ) )",
+        "description": "Returns a random value from a Cauchy distribution.\n\n `density(x) = 1/(pi( 1 + x 2 ) )`",
         "example": "",
         "name": "Cauchy",
         "parameters": [],
@@ -598,7 +601,7 @@
     },
     {
         "datatype": "float",
-        "description": "cosine",
+        "description": "Returns the cosine of x.",
         "example": "",
         "name": "cos",
         "parameters": [
@@ -617,7 +620,7 @@
     },
     {
         "datatype": "string",
-        "description": "time t as a string",
+        "description": "time t (unix timestamp) as a string",
         "example": "",
         "name": "ctime",
         "parameters": [
@@ -666,7 +669,7 @@
         "type": "keyword"
     },
     {
-        "description": "print model entities and expressions; also csvdisplay and _display",
+        "description": "print model entities and expressions;\n\n also see csvdisplay and _display",
         "name": "display",
         "type": "keyword"
     },
@@ -717,12 +720,12 @@
     },
     {
         "datatype": "float",
-        "description": "ex",
+        "description": "Returns `e^x`",
         "example": "",
         "name": "exp",
         "parameters": [
             {
-                "description": "",
+                "description": "power to raise `e` to",
                 "name": "x",
                 "type": "float"
             }
@@ -736,7 +739,7 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from an Exponential distribution. density(x) = e^-x , x>=0",
+        "description": "Returns a random value from an Exponential distribution.\n\n `density(x) = e^-x; x>=0`",
         "example": "",
         "name": "Exponential",
         "parameters": [],
@@ -762,15 +765,15 @@
         "type": "keyword"
     },
     {
-        "datatype": "float",
+        "datatype": "int",
         "description": "floor of x (next lower integer)",
         "example": "",
         "name": "floor",
         "parameters": [
             {
-                "description": "",
+                "description": "number to floor",
                 "name": "x",
-                "type": "float"
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -787,13 +790,13 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from a Gamma distribution. density(x) = x a^-1 e^-x / gamma(a), x>=0",
+        "description": "Returns a random value from a Gamma distribution.\n\n `density(x) = x a^-1 e^-x / gamma(a), x>=0`",
         "example": "",
         "name": "Gamma",
         "parameters": [
             {
                 "name": "a",
-                "type": "float"
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -1029,7 +1032,7 @@
         "type": "function"
     },
     {
-        "datatype": "float",
+        "datatype": "numeric",
         "description": "maximum (2 or more arguments)",
         "example": "",
         "name": "max",
@@ -1058,18 +1061,18 @@
         "type": "declaration"
     },
     {
-        "datatype": "object",
+        "datatype": "any",
         "description": "jth member of S; 1 <= j <= card(S), j integer",
         "example": "",
         "name": "member",
         "parameters": [
             {
-                "description": "set",
+                "description": "set to index",
                 "name": "S",
                 "type": "Set"
             },
             {
-                "description": "int",
+                "description": "position of member, 1 <= j <= card(S)",
                 "name": "j",
                 "type": "int"
             }
@@ -1169,7 +1172,7 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from a Normal distribution. density(x) = e^-(x-avg)^2/(2*std^2) / (std*sqrt(2*pi))",
+        "description": "Returns a random value from a Normal distribution. \n\n `density(x) = e^-(x-avg)^2/(2*std^2) / (std*sqrt(2*pi))`",
         "example": "",
         "name": "Normal",
         "parameters": [
@@ -1186,7 +1189,7 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from a Normal distribution with mean 0 and standard deviation 1. density(x) = e^-(x-0)^2/(2*1^2) / (1*sqrt(2*pi))",
+        "description": "Returns a random value from a Normal distribution with mean 0 and standard deviation 1. \n\n `density(x) = e^-(x-0)^2/(2*1^2) / (1*sqrt(2*pi))`",
         "example": "",
         "name": "Normal01",
         "parameters": [],
@@ -1203,7 +1206,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "float",
+        "datatype": "float | int",
         "description": "convert string s to number; error if stripping leading and trailing white space does not yield a valid decimal number",
         "example": "",
         "name": "num",
@@ -1217,7 +1220,7 @@
         "type": "function"
     },
     {
-        "datatype": "float",
+        "datatype": "numeric | null",
         "description": "strip leading white space, and interpret as much as possible of s as a number, but do not raise error",
         "example": "",
         "name": "num0",
@@ -1308,32 +1311,32 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from a Poisson distribution. density(x) = e^-lambda lambda^x / x!, x>=0",
+        "description": "Returns a random value from a Poisson distribution.\n\n`density(x) = e^-lambda lambda^x / x!; x>=0`",
         "example": "",
         "name": "Poisson",
         "parameters": [
             {
                 "name": "lambda",
-                "type": "float"
+                "type": "numeric"
             }
         ],
         "type": "function"
     },
     {
-        "datatype": "float",
+        "datatype": "numeric",
         "description": "x rounded to n significant decimal digits",
         "example": "",
         "name": "precision",
         "parameters": [
             {
+                "description": "",
+                "name": "x",
+                "type": "numeric"
+            },
+            {
                 "description": "precision",
                 "name": "n",
                 "type": "int"
-            },
-            {
-                "description": "",
-                "name": "x",
-                "type": "float"
             }
         ],
         "type": "function"
@@ -1451,7 +1454,7 @@
         "type": "keyword"
     },
     {
-        "datatype": "float",
+        "datatype": "numeric",
         "description": "x rounded to n digits past decimal point",
         "example": "",
         "name": "round",
@@ -1509,7 +1512,7 @@
             {
                 "description": "",
                 "name": "x",
-                "type": "float"
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -1523,7 +1526,7 @@
             {
                 "description": "",
                 "name": "x",
-                "type": "float"
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -1590,7 +1593,8 @@
         "parameters": [
             {
                 "description": "",
-                "name": "x"
+                "name": "x",
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -1631,7 +1635,7 @@
     },
     {
         "datatype": "string",
-        "description": "n character substring of s starting at position m; if n omitted, rest of string",
+        "description": "n character substring of s starting at position m;\n if n omitted, rest of string",
         "example": "",
         "name": "substr",
         "parameters": [
@@ -1687,7 +1691,8 @@
         "parameters": [
             {
                 "description": "",
-                "name": "x"
+                "name": "x",
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -1700,7 +1705,8 @@
         "parameters": [
             {
                 "description": "",
-                "name": "x"
+                "name": "x",
+                "type": "numeric"
             }
         ],
         "type": "function"
@@ -1726,7 +1732,8 @@
         "parameters": [
             {
                 "description": "",
-                "name": "x"
+                "name": "x",
+                "type": "numeric"
             },
             {
                 "default": 0,
@@ -1749,11 +1756,11 @@
         "parameters": [
             {
                 "name": "m",
-                "type": "float"
+                "type": "numeric"
             },
             {
                 "name": "n",
-                "type": "float"
+                "type": "numeric"
             }
         ],
         "type": "function"

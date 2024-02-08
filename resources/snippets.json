@@ -200,5 +200,14 @@
             "block_comment",
             "/**"
         ]
+    },
+    "Function": {
+        "body": [
+            "function ${1:Name} {${2:Domain}} - ${3:Spec} ${4:Type} ${5:Pipe} ${6:Litseq} ${7:Format} ${8:Fmt};"
+        ],
+        "description": "Declare a function -- imported from the GAMS language package.",
+        "prefix": [
+            "function"
+        ]
     }
 }
