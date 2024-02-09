@@ -1,12 +1,20 @@
 # Change Log
 
-## 0.0.1
+## 0.0.6
 
-- Initial release: in active development
-  
-## 0.0.2
+- Tweaks to `snippets.json` and `keywords.json`
+- Returns publish on github release.
 
-- Remove icontheme
+## 0.0.5
+
+- Improve definition on hover
+- Change some definitions <-- more work needs to be done here.
+- remove `base.tmLanguage.json`
+- update `package.json`
+
+## 0.0.4
+
+- Add syntax highlighting to escape/placeholder characters in strings.
 
 ## 0.0.3
 
@@ -15,13 +23,10 @@
 - Update gitignore
 - Save file on run
 
-## 0.0.4
+## 0.0.2
 
-- Add syntax highlighting to escape/placeholder characters in strings.
+- Remove icontheme
 
-## 0.0.5
+## 0.0.1
 
-- Improve definition on hover
-- Change some definitions <-- more work needs to be done here.
-- remove `base.tmLanguage.json`
-- update `package.json`
+- Initial release: in active development
