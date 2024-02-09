@@ -3,6 +3,7 @@
 ## 0.0.6
 
 - Tweaks to `snippets.json` and `keywords.json`
+- Returns publish on github release.
 
 ## 0.0.5
 
