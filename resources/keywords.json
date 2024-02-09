@@ -1630,8 +1630,18 @@
     },
     {
         "description": "",
+        "name": "s.t.",
+        "type": "declaration"
+    },
+    {
+        "description": "",
         "name": "subject to",
         "type": "declaration"
+    },
+    {
+        "description": "",
+        "name": "repeat",
+        "type": "keyword"
     },
     {
         "datatype": "string",

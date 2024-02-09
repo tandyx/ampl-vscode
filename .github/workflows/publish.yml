@@ -1,20 +1,19 @@
-# on:
-#   release:
-#     types:
-#       - published
 name: Deploy Extension
-
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-    types: [closed]
+  release:
+    types:
+      - published
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
+#     types: [closed]
+# if: github.event.pull_request.merged == true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
