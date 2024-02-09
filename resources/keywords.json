@@ -746,7 +746,7 @@
         "type": "function"
     },
     {
-        "datatype": "object",
+        "datatype": "any",
         "description": "first member of S",
         "example": "",
         "name": "first",
@@ -868,7 +868,7 @@
             {
                 "description": "entity",
                 "name": "E",
-                "type": "object"
+                "type": "any"
             }
         ],
         "type": "function"
@@ -927,7 +927,7 @@
         "type": "function"
     },
     {
-        "datatype": "object",
+        "datatype": "any",
         "description": "last member of S",
         "example": "",
         "name": "last",
@@ -1114,13 +1114,13 @@
         "type": "keyword"
     },
     {
-        "datatype": "object",
+        "datatype": "any",
         "description": "next member of set for which e is dummy index",
         "example": "",
         "name": "next",
         "parameters": [
             {
-                "description": "object",
+                "description": "dummy index...?",
                 "name": "e",
                 "type": "object"
             },
@@ -1140,7 +1140,7 @@
         "type": "function"
     },
     {
-        "datatype": "object",
+        "datatype": "any",
         "description": "wrapping version of next",
         "example": "",
         "name": "nextw",
@@ -1342,13 +1342,13 @@
         "type": "function"
     },
     {
-        "datatype": "object",
+        "datatype": "any",
         "description": "previous member of set for which e is dummy index",
         "example": "",
         "name": "prev",
         "parameters": [
             {
-                "description": "object",
+                "description": "dummy index...?",
                 "name": "e",
                 "type": "object"
             },
@@ -1368,7 +1368,7 @@
         "type": "function"
     },
     {
-        "datatype": "object",
+        "datatype": "any",
         "description": "wrapping version of prev",
         "example": "",
         "name": "prevw",
