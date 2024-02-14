@@ -12,16 +12,14 @@ enum KeywordType {
   class = "entity.name.class.ampl",
 }
 
-const resourcesPath = path.join(__dirname, "..", "resources");
-
 /**
  * builds AMPL.tmLanguage.json
  */
 function build(): void {
+  const resourcesPath = path.join(__dirname, "..", "resources");
   const keywords: keyword.Keyword[] = JSON.parse(
     fs.readFileSync(path.join(resourcesPath, "keywords.json"), "utf-8")
   );
-
   const baseJson: any = {
     name: "AMPL",
     scopeName: "source.ampl",
@@ -203,9 +201,11 @@ function build(): void {
     types[keyword.type] += `${keyword.name}|`;
 
     if (keyword.datatype) classes.add(keyword.datatype);
-    if (keyword.parameters)
-      for (const param of keyword.parameters)
+    if (keyword.parameters) {
+      for (const param of keyword.parameters) {
         if (param.type) classes.add(param.type);
+      }
+    }
   }
 
   for (const [key, value] of Object.entries(types)) {
