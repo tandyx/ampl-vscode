@@ -25,7 +25,7 @@
     },
     {
         "datatype": "float",
-        "description": "ampl system time + ampl user time",
+        "description": "`_ampl_system_time + _ampl_user_time`",
         "name": "_ampl_time",
         "type": "constant"
     },
@@ -140,7 +140,7 @@
     },
     {
         "datatype": "float",
-        "description": "shell system time + shell user time",
+        "description": "`_shell_system_time + _shell_user_time`",
         "name": "_shell_time",
         "type": "constant"
     },
@@ -182,7 +182,7 @@
     },
     {
         "datatype": "int",
-        "description": "number of nonlinear compl. constrs.: _snccons=_snlcc+_snnlcc",
+        "description": "number of nonlinear compl. \n ```ampl \nconstrs.: _snccons = _snlcc + _snnlcc\n```",
         "name": "_snnlcc",
         "type": "constant"
     },
@@ -236,7 +236,7 @@
     },
     {
         "datatype": "float",
-        "description": "solve system time + solve user time",
+        "description": "_solve_system_time + _solve_user_time",
         "name": "_solve_time",
         "type": "constant"
     },
@@ -270,7 +270,7 @@
     },
     {
         "datatype": "float",
-        "description": "total shell system time + total shell user time",
+        "description": "`_total_shell_system_time` + `_total_shell_user_time`",
         "name": "_total_shell_time",
         "type": "constant"
     },
@@ -299,7 +299,7 @@
     },
     {
         "datatype": "float",
-        "description": "total solve system time + total solve user time",
+        "description": "`_total_solve_system_time` + `_total_solve_user_time`",
         "name": "_total_solve_time",
         "type": "constant"
     },
@@ -317,7 +317,7 @@
     },
     {
         "datatype": "float",
-        "description": "absolute value x",
+        "description": "absolute value `x`",
         "example": "",
         "name": "abs",
         "parameters": [
@@ -331,7 +331,7 @@
     },
     {
         "datatype": "float",
-        "description": "inverse cosine,cos^-1",
+        "description": "inverse cosine, `cos^-1`",
         "example": "",
         "name": "acos",
         "parameters": [
@@ -359,7 +359,7 @@
     },
     {
         "datatype": "object",
-        "description": "returns alias of model entity v",
+        "description": "returns alias of model entity `v`",
         "example": "",
         "name": "alias",
         "parameters": [
@@ -388,7 +388,7 @@
     },
     {
         "datatype": "int",
-        "description": "arity of S if S is a set, else 0; for use with _SETS",
+        "description": "arity of `S` if `S` is a set, else 0; for use with `_SETS`",
         "example": "",
         "name": "arity",
         "parameters": [
@@ -516,8 +516,8 @@
     },
     {
         "datatype": "int",
-        "description": "number of members in set S",
-        "example": "",
+        "description": "Operates on any finite set: `card(sexpr)` returns the number of members in _sexpr_. If _sexpr_ is an indexing expression, the parentheses may be omitted",
+        "example": "card({i in A: x[i] >= 4}) # int",
         "name": "card",
         "parameters": [
             {
@@ -543,7 +543,7 @@
     },
     {
         "datatype": "float",
-        "description": "ceiling of x (next higher integer)",
+        "description": "ceiling of `x` (next higher integer)",
         "example": "",
         "name": "ceil",
         "parameters": [
@@ -557,7 +557,7 @@
     },
     {
         "datatype": "string",
-        "description": "string representation of character n; inverse of ichar",
+        "description": "string representation of character `n`; inverse of `ichar`",
         "example": "",
         "name": "char",
         "parameters": [
@@ -601,7 +601,7 @@
     },
     {
         "datatype": "float",
-        "description": "Returns the cosine of x.",
+        "description": "Returns the cosine of `x`.",
         "example": "",
         "name": "cos",
         "parameters": [
@@ -620,8 +620,8 @@
     },
     {
         "datatype": "string",
-        "description": "time t (unix timestamp) as a string",
-        "example": "",
+        "description": "time `t` as a string",
+        "example": "display ctime(); #'Wed Feb 28 09:50:48 2024'",
         "name": "ctime",
         "parameters": [
             {
@@ -646,6 +646,21 @@
     {
         "description": "",
         "name": "default",
+        "type": "keyword"
+    },
+    {
+        "description": "",
+        "name": "net_in",
+        "type": "keyword"
+    },
+    {
+        "description": "",
+        "name": "net_out",
+        "type": "keyword"
+    },
+    {
+        "description": "",
+        "name": "to_come",
         "type": "keyword"
     },
     {
@@ -747,7 +762,7 @@
     },
     {
         "datatype": "any",
-        "description": "first member of S",
+        "description": "first member of parameter set `S`",
         "example": "",
         "name": "first",
         "parameters": [
@@ -766,7 +781,7 @@
     },
     {
         "datatype": "int",
-        "description": "floor of x (next lower integer)",
+        "description": "floor of `x` (next lower integer)",
         "example": "",
         "name": "floor",
         "parameters": [
@@ -803,7 +818,7 @@
     },
     {
         "datatype": "string",
-        "description": "substitute repl for all occurrences of regular expression re in s",
+        "description": "substitute repl for all occurrences of regular expression `re` in `s`",
         "example": "",
         "name": "gsub",
         "parameters": [
@@ -861,7 +876,7 @@
     },
     {
         "datatype": "int",
-        "description": "arity of entity E's indexing set card, arity, and indexarity also apply to unordered sets",
+        "description": "arity of entity `E`'s indexing set card, arity, and indexarity also apply to unordered sets",
         "example": "",
         "name": "indexarity",
         "parameters": [
@@ -928,7 +943,7 @@
     },
     {
         "datatype": "any",
-        "description": "last member of S",
+        "description": "returns the last member of `S`",
         "example": "",
         "name": "last",
         "parameters": [
@@ -942,7 +957,7 @@
     },
     {
         "datatype": "int",
-        "description": "length of string s",
+        "description": "returns the length of string `s`",
         "example": "",
         "name": "length",
         "parameters": [
@@ -981,7 +996,7 @@
     },
     {
         "datatype": "float",
-        "description": "loge ",
+        "description": "returns the natural log of `x`",
         "example": "",
         "name": "log",
         "parameters": [
@@ -995,7 +1010,7 @@
     },
     {
         "datatype": "float",
-        "description": "log10 ",
+        "description": "returns the base 10 logarithm of `x`",
         "example": "",
         "name": "log10",
         "parameters": [
@@ -1014,7 +1029,7 @@
     },
     {
         "datatype": "string",
-        "description": "starting position of regular expression re in s, or 0 if not found",
+        "description": "starting position of regular expression `re` in `s`, or 0 if not found",
         "example": "",
         "name": "match",
         "parameters": [
@@ -1062,7 +1077,7 @@
     },
     {
         "datatype": "any",
-        "description": "jth member of S; 1 <= j <= card(S), j integer",
+        "description": "_jth_ member of `S`; `1 <= j <= card(S), j: int`",
         "example": "",
         "name": "member",
         "parameters": [
@@ -1115,7 +1130,7 @@
     },
     {
         "datatype": "any",
-        "description": "next member of set for which e is dummy index",
+        "description": "next member of `set` for which `e` is a dummy index",
         "example": "",
         "name": "next",
         "parameters": [
@@ -1125,7 +1140,6 @@
                 "type": "object"
             },
             {
-                "default": null,
                 "description": "set",
                 "name": "S",
                 "type": "Set"
@@ -1141,7 +1155,7 @@
     },
     {
         "datatype": "any",
-        "description": "wrapping version of next",
+        "description": "wrapping version of `next`",
         "example": "",
         "name": "nextw",
         "parameters": [
@@ -1152,7 +1166,6 @@
             },
             {
                 "default": null,
-                "description": "set",
                 "name": "S",
                 "type": "Set"
             },
@@ -1206,8 +1219,8 @@
         "type": "keyword"
     },
     {
-        "datatype": "float | int",
-        "description": "convert string s to number; error if stripping leading and trailing white space does not yield a valid decimal number",
+        "datatype": "numeric",
+        "description": "convert string `s` to number; error if stripping leading and trailing white space does not yield a valid decimal number",
         "example": "",
         "name": "num",
         "parameters": [
@@ -1221,7 +1234,7 @@
     },
     {
         "datatype": "numeric | null",
-        "description": "strip leading white space, and interpret as much as possible of s as a number, but do not raise error",
+        "description": "strip leading white space, and interpret as much as possible of `s` as a number, but do not raise error",
         "example": "",
         "name": "num0",
         "parameters": [
@@ -1256,7 +1269,7 @@
     },
     {
         "datatype": "int",
-        "description": "ordinal position of member e in set for which it is dummy index",
+        "description": "ordinal position of member `e` in set for which it is dummy index",
         "example": "",
         "name": "ord",
         "parameters": [
@@ -1276,7 +1289,7 @@
     },
     {
         "datatype": "int",
-        "description": "same as ord",
+        "description": "same as `ord`, but does not raise an error if `e` is not in `S`",
         "example": "",
         "name": "ord0",
         "parameters": [
@@ -1324,7 +1337,7 @@
     },
     {
         "datatype": "numeric",
-        "description": "x rounded to n significant decimal digits",
+        "description": "`x` rounded to `n` significant decimal digits",
         "example": "",
         "name": "precision",
         "parameters": [
@@ -1343,7 +1356,7 @@
     },
     {
         "datatype": "any",
-        "description": "previous member of set for which e is dummy index",
+        "description": "previous member of set for which `e` is dummy index",
         "example": "",
         "name": "prev",
         "parameters": [
@@ -1369,7 +1382,7 @@
     },
     {
         "datatype": "any",
-        "description": "wrapping version of prev",
+        "description": "wrapping version of `prev`",
         "example": "",
         "name": "prevw",
         "parameters": [
@@ -1455,7 +1468,7 @@
     },
     {
         "datatype": "numeric",
-        "description": "x rounded to n digits past decimal point",
+        "description": "`x` rounded to n digits past decimal point",
         "example": "",
         "name": "round",
         "parameters": [
@@ -1519,7 +1532,7 @@
     },
     {
         "datatype": "float",
-        "description": "hyperbolic sine",
+        "description": "returns the hyperbolic sine of `x`",
         "example": "",
         "name": "sinh",
         "parameters": [
@@ -1568,7 +1581,7 @@
     },
     {
         "datatype": "string",
-        "description": "format arguments according to format string fmt",
+        "description": "format arguments into a string c-style",
         "example": "",
         "name": "sprintf",
         "parameters": [
@@ -1587,8 +1600,8 @@
     },
     {
         "datatype": "float",
-        "description": "square root",
-        "example": "",
+        "description": "returns the square root of x",
+        "example": "display sqrt(10); # sqrt(10) = 3.16228",
         "name": "sqrt",
         "parameters": [
             {
@@ -1601,7 +1614,7 @@
     },
     {
         "datatype": "string",
-        "description": "substitute repl for the first occurrence of regular expression re in s",
+        "description": "substitute `repl` for the first occurrence of regular expression `re` in `s`",
         "example": "",
         "name": "sub",
         "parameters": [
@@ -1728,7 +1741,7 @@
     },
     {
         "datatype": "float",
-        "description": "current time in seconds",
+        "description": "current unix timestamp in seconds",
         "example": "",
         "name": "time",
         "parameters": [],
@@ -1736,7 +1749,7 @@
     },
     {
         "datatype": "float",
-        "description": "x truncated to n digits past decimal point",
+        "description": "`x` truncated to `n` digits past decimal point",
         "example": "",
         "name": "trunc",
         "parameters": [
@@ -1760,7 +1773,7 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from a Uniform distribution. density(x) = 1/(n-m), x in [m, n]",
+        "description": "Returns a random value from a Uniform distribution. `density(x) = 1/(n-m), x in [m, n]`",
         "example": "",
         "name": "Uniform",
         "parameters": [
@@ -1777,8 +1790,8 @@
     },
     {
         "datatype": "float",
-        "description": "Returns a random value from a Uniform distribution. density(x) = 1, x in [0, 1]",
-        "example": "",
+        "description": "Returns a random value from a Uniform distribution. `density(x) = 1, x in [0, 1]`",
+        "example": "display Uniform01(); # Uniform01() = 0.690420",
         "name": "Uniform01",
         "parameters": [],
         "type": "function"

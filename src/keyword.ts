@@ -93,6 +93,8 @@ export enum DatatypeEnum {
    * numeric datatype -- float OR integer
    */
   Numeric = "numeric",
+
+  Void = "void",
 }
 
 /**

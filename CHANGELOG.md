@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.0.7
+
+_02/28/2024_
+
+- Tweaks to `keywords.json` and `build.ts` to improve hints
+- hopefully this doesn't break anything!
+
 ## 0.0.6
 
 - Tweaks to `snippets.json` and `keywords.json`

@@ -28,6 +28,9 @@
                     "include": "#genericfunction"
                 },
                 {
+                    "include": "#suffix"
+                },
+                {
                     "include": "#constant"
                 },
                 {
@@ -46,10 +49,10 @@
                     "include": "#classes"
                 },
                 {
-                    "include": "#suffix"
+                    "include": "#operator"
                 },
                 {
-                    "include": "#operator"
+                    "include": "#pseudoconstant"
                 },
                 {
                     "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
@@ -146,6 +149,10 @@
             "name": "entity.name.function.ampl",
             "match": "\\b(?![if|and|or])[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*\\()"
         },
+        "pseudoconstant": {
+            "name": "constant.language.ampl",
+            "match": "\\b(null|true|false)\\b"
+        },
         "argumentcurly": {
             "begin": "\\{",
             "patterns": [
@@ -177,7 +184,7 @@
             "name": "constant.language.ampl"
         },
         "keyword": {
-            "match": "\\b((to|from|obj|all|and|break|by|call|cd|check|close|commands|complements|contains|continue|cross|Current|data|default|delete|diff|difference|dimen|display|csvdisplay|_display|div|drop|else|end|environ|exists|exit|expand|fix|for|forall|if|IN|in|include|ordered by|circular by|Initial|initial|INOUT|inter|intersect|intersection|less|let|load|LOCAL|local|logical|model|not|notin|objective|option|or|OUT|out|print|printf|problem|prod|purge|quit|read|redeclare|reload|remove|reset|restore|setof|shell|shell_exitcode|show|solexpand|solution|solve|solve_exitcode|solve_message|solve_result|solve_result_num|repeat|suffix|sum|symdiff|table|then|unfix|union|unload|until|update|while|within|write|xref)\\b)",
+            "match": "\\b((to|from|obj|all|and|break|by|call|cd|check|close|commands|complements|contains|continue|cross|Current|data|default|net_in|net_out|to_come|delete|diff|difference|dimen|display|csvdisplay|_display|div|drop|else|end|environ|exists|exit|expand|fix|for|forall|if|IN|in|include|ordered by|circular by|Initial|initial|INOUT|inter|intersect|intersection|less|let|load|LOCAL|local|logical|model|not|notin|objective|option|or|OUT|out|print|printf|problem|prod|purge|quit|read|redeclare|reload|remove|reset|restore|setof|shell|shell_exitcode|show|solexpand|solution|solve|solve_exitcode|solve_message|solve_result|solve_result_num|repeat|suffix|sum|symdiff|table|then|unfix|union|unload|until|update|while|within|write|xref)\\b)",
             "name": "keyword.control.ampl"
         },
         "function": {
@@ -193,7 +200,7 @@
             "name": "storage.type.ampl"
         },
         "classes": {
-            "match": "\\b((Set[string]|Set|float|Set[object]|int|object|numeric|string|any|float | int|numeric | null)\\b)",
+            "match": "\\b((Set[string]|Set|float|Set[object]|int|object|numeric|string|any|numeric | null)\\b)",
             "name": "entity.name.class.ampl"
         }
     },

@@ -1,5 +1,6 @@
 import * as os from "os";
 import * as fs from "fs";
+import * as path from "path";
 import * as vscode from "vscode";
 import * as _keyword from "./keyword";
 
@@ -19,7 +20,7 @@ export class AMPLTerminal {
    */
   public amplPath: string =
     vscode.workspace.getConfiguration("ampl").get<string>("pathToExecutable") ||
-    findExecutable("ampl.exe");
+    findPathFile("ampl.exe");
 
   /**
    * arguments to pass to the AMPL executable - comes from user settings
@@ -81,7 +82,7 @@ export function getBaseCompletionItem(
 /**
  * function to get the markdown for a keyword
  * @param {_keyword.Keyword} keyword  - the keyword to get the markdown for
- * @returns  {vscode.MarkdownString} - the markdown string for the keyword
+ * @returns  {vscode.MarkdownString} the markdown string for the keyword
  */
 export function getKeywordMarkdown(
   keyword: _keyword.Keyword
@@ -132,7 +133,7 @@ export function getKeywordMarkdown(
     }
   }
   if (keyword.type === "function") {
-    markdownString.appendMarkdown(`\n**returns**: ${keyword.datatype}\n`);
+    markdownString.appendMarkdown(`\n**returns**: \`${keyword.datatype}\`\n`);
   }
 
   if (keyword.example) {
@@ -144,19 +145,17 @@ export function getKeywordMarkdown(
 }
 
 /**
- * looks for the executable in the PATH environment variable
+ * looks for a file in the PATH environment variable
+ * returns the full path.
  * @param {string} exeName - the name of the executable to find
- * @returns
+ * @returns {string} the path to the executable
  */
-export function findExecutable(exeName: string): string {
-  const path = process.env.PATH;
-  if (path) {
-    const paths = path.split(os.platform() === "win32" ? ";" : ":");
-    for (const p of paths) {
-      const fullPath = `${p}/${exeName}`;
-      if (fs.existsSync(fullPath)) {
-        return fullPath;
-      }
+export function findPathFile(exeName: string): string {
+  const pathEnv = process.env.PATH || "";
+  for (const _path of pathEnv.split(os.platform() === "win32" ? ";" : ":")) {
+    const fullPath = path.join(_path, exeName);
+    if (fs.existsSync(fullPath)) {
+      return fullPath;
     }
   }
   return "";
