@@ -82,7 +82,7 @@ export function getBaseCompletionItem(
 /**
  * function to get the markdown for a keyword
  * @param {_keyword.Keyword} keyword  - the keyword to get the markdown for
- * @returns  {vscode.MarkdownString} - the markdown string for the keyword
+ * @returns  {vscode.MarkdownString} the markdown string for the keyword
  */
 export function getKeywordMarkdown(
   keyword: _keyword.Keyword
@@ -133,7 +133,7 @@ export function getKeywordMarkdown(
     }
   }
   if (keyword.type === "function") {
-    markdownString.appendMarkdown(`\n**returns**: ${keyword.datatype}\n`);
+    markdownString.appendMarkdown(`\n**returns**: \`${keyword.datatype}\`\n`);
   }
 
   if (keyword.example) {
@@ -148,7 +148,7 @@ export function getKeywordMarkdown(
  * looks for a file in the PATH environment variable
  * returns the full path.
  * @param {string} exeName - the name of the executable to find
- * @returns {string} - the path to the executable
+ * @returns {string} the path to the executable
  */
 export function findPathFile(exeName: string): string {
   const pathEnv = process.env.PATH || "";

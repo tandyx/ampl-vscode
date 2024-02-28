@@ -52,6 +52,9 @@ function build(): void {
             include: "#operator",
           },
           {
+            include: "#pseudoconstant",
+          },
+          {
             match: "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
             name: "variable.other.ampl",
           },
@@ -149,6 +152,11 @@ function build(): void {
         name: "entity.name.function.ampl",
         match: "\\b(?![if|and|or])[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*\\()",
       },
+      pseudoconstant: {
+        name: "constant.language.ampl", // these don't exist in AMPL
+        match: "\\b(null|true|false)\\b",
+      },
+
       argumentcurly: {
         begin: "\\{",
         patterns: [

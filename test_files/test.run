@@ -14,7 +14,7 @@ display {j in 1.._nvars} (_varname[j], _var[j], _var[j].rc);
 printf "==================\nActive constraints\n==================\n";
 
 expand;
-
+car
 param eps:= 1e-6;
 for {i in 1.._ncons} {
     if (-eps <= _con[i].lslack <= eps) or (-eps <= _con[i].uslack <= eps) then
