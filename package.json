@@ -2,7 +2,7 @@
 	"name": "ampl-vscode",
 	"displayName": "AMPL for VS Code",
 	"description": "AMPL language support for Visual Studio Code",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"publisher": "johan-cho",
 	"author": {
 		"name": "Johan Cho"
