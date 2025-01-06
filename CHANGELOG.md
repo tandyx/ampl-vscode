@@ -1,8 +1,10 @@
 # Change Log
 
-## 0.0.7
+## 0.0.8
 
-_02/28/2024_
+- fix looking for ampl binaray path on unix systems
+
+## 0.0.7
 
 - Tweaks to `keywords.json` and `build.ts` to improve hints
 - hopefully this doesn't break anything!

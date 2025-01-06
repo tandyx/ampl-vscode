@@ -95,9 +95,7 @@ export function runFile(): void {
  */
 function getAmplConsole(): vscode.Terminal {
   const terminal = vscode.window.activeTerminal;
-  if (!terminal || terminal.name !== "AMPL") {
-    return openAMPLConsole();
-  }
+  if (!terminal || terminal.name !== "AMPL") return openAMPLConsole();
   return terminal;
 }
 

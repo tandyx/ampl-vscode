@@ -75,3 +75,4 @@ node_modules
 *.tocken
 __pycache__/
 .DS_Store
+package-lock.json
