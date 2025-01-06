@@ -20,7 +20,8 @@ export class AMPLTerminal {
    */
   public amplPath: string =
     vscode.workspace.getConfiguration("ampl").get<string>("pathToExecutable") ||
-    findPathFile("ampl.exe");
+    findPathFile("ampl.exe") ||
+    findPathFile("ampl");
 
   /**
    * arguments to pass to the AMPL executable - comes from user settings
